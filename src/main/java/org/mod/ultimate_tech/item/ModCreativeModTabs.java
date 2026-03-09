@@ -50,7 +50,6 @@ public class ModCreativeModTabs {
                 pOutput.accept(ModItems.ZINC_ROD.get());
                 pOutput.accept(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
                 pOutput.accept(ModBlocks.MACHINE_STRUCTURAL_HOUSING.get());
-                pOutput.accept(Items.DIAMOND);
             })
             .build());
 }
