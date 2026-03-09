@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "minecraft:birch_hanging_sign"
+  ],
+  "default_model": "fusion_3d_items:item/birch_hanging_sign",
+  "models": []
+}

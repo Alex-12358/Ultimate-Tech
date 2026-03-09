@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "minecraft:mangrove_door"
+  ],
+  "default_model": "fusion_3d_items:item/mangrove_door",
+  "models": []
+}

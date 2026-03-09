@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "minecraft:jungle_door"
+  ],
+  "default_model": "fusion_3d_items:item/jungle_door",
+  "models": []
+}

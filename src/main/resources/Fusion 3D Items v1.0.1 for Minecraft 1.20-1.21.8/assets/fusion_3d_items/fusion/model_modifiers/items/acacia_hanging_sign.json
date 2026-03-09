@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "minecraft:acacia_hanging_sign"
+  ],
+  "default_model": "fusion_3d_items:item/acacia_hanging_sign",
+  "models": []
+}

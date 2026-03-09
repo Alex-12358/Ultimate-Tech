@@ -1,0 +1,6 @@
+{
+  "parent": "fusion_3d_items:item/3d_hanging_sign_template",
+  "textures": {
+    "sign": "fusion_3d_items:item/hanging_signs/acacia"
+  }
+}

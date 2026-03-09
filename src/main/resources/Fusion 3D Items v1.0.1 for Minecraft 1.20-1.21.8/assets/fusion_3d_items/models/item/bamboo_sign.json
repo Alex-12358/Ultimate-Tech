@@ -1,0 +1,6 @@
+{
+  "parent": "fusion_3d_items:item/3d_sign_template",
+  "textures": {
+    "sign": "fusion_3d_items:item/signs/bamboo"
+  }
+}

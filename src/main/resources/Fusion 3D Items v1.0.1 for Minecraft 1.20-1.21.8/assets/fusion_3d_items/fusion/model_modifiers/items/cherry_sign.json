@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "minecraft:cherry_sign"
+  ],
+  "default_model": "fusion_3d_items:item/cherry_sign",
+  "models": []
+}

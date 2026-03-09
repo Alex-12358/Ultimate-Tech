@@ -1,0 +1,6 @@
+{  
+  "parent" : "item/generated",  
+  "textures" : {  
+    "layer0" : "ultimate_tech:item/diamond_rod"  
+  }  
+}

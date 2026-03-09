@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "minecraft:lever"
+  ],
+  "default_model": "fusion_3d_items:item/lever",
+  "models": []
+}

@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "minecraft:cauldron"
+  ],
+  "default_model": "fusion_3d_items:item/cauldron",
+  "models": []
+}

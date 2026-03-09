@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "minecraft:sea_pickle"
+  ],
+  "default_model": "fusion_3d_items:item/sea_pickle",
+  "models": []
+}

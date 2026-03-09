@@ -1,0 +1,7 @@
+{
+  "parent": "fusion_3d_items:item/3d_door_template",
+  "textures": {
+    "bottom": "block/exposed_copper_door_bottom",
+    "top": "block/exposed_copper_door_top"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "targets": [
+    "minecraft:oxidized_copper_door",
+    "minecraft:waxed_oxidized_copper_door"
+  ],
+  "default_model": "fusion_3d_items:item/oxidized_copper_door",
+  "models": []
+}

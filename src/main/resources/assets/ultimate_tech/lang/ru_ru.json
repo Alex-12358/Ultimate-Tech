@@ -1,0 +1,27 @@
+{
+  "item.ultimate_tech.aluminum_rod": "Алюминиевый стержень",
+  "item.ultimate_tech.brass_rod": "Латунный стержень",
+  "item.ultimate_tech.bronze_rod": "Бронзовый стержень",
+  "item.ultimate_tech.constantan_rod": "Константановый стержень",
+  "item.ultimate_tech.copper_rod": "Медный стержень",
+  "item.ultimate_tech.diamond_rod": "Алмазный стержень",
+  "item.ultimate_tech.electrum_rod": "Электрумовый стержень",
+  "item.ultimate_tech.enderium_rod": "Эндериумовый стержень",
+  "item.ultimate_tech.gold_rod": "Золотой стержень",
+  "item.ultimate_tech.invar_rod": "Инваровый стержень",
+  "item.ultimate_tech.iridium_rod": "Иридиевый стержень",
+  "item.ultimate_tech.iron_rod": "Железный стержень",
+  "item.ultimate_tech.lead_rod": "Свинцовый стержень",
+  "item.ultimate_tech.lumium_rod": "Люмиумовый стержень",
+  "item.ultimate_tech.nickel_rod": "Никелевый стержень",
+  "item.ultimate_tech.osmium_rod": "Осмиевый стержень",
+  "item.ultimate_tech.platinum_rod": "Платиновый стержень",
+  "item.ultimate_tech.signalum_rod": "Сигналумовый стержень",
+  "item.ultimate_tech.silver_rod": "Серебряный стержень",
+  "item.ultimate_tech.steel_rod": "Стальной стержень",
+  "item.ultimate_tech.tin_rod": "Оловянный стержень",
+  "item.ultimate_tech.uranium_rod": "Урановый стержень",
+  "item.ultimate_tech.zinc_rod": "Цинковый стержень",
+
+  "creativetab.first_tab": "Ultimate Tech"
+}

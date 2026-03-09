@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "minecraft:spruce_hanging_sign"
+  ],
+  "default_model": "fusion_3d_items:item/spruce_hanging_sign",
+  "models": []
+}

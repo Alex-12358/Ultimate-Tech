@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "minecraft:spruce_door"
+  ],
+  "default_model": "fusion_3d_items:item/spruce_door",
+  "models": []
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "fusion_3d_items:item/3d_door_template",
+  "textures": {
+    "bottom": "block/warped_door_bottom",
+    "top": "block/warped_door_top"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "item.ultimate_tech.aluminum_rod": "Aluminum Rod",
+  "item.ultimate_tech.brass_rod": "Brass Rod",
+  "item.ultimate_tech.bronze_rod": "Bronze Rod",
+  "item.ultimate_tech.constantan_rod": "Constantan Rod",
+  "item.ultimate_tech.copper_rod": "Copper Rod",
+  "item.ultimate_tech.diamond_rod": "Diamond Rod",
+  "item.ultimate_tech.electrum_rod": "Electrum Rod",
+  "item.ultimate_tech.enderium_rod": "Enderium Rod",
+  "item.ultimate_tech.gold_rod": "Gold Rod",
+  "item.ultimate_tech.invar_rod": "Invar Rod",
+  "item.ultimate_tech.iridium_rod": "Iridium Rod",
+  "item.ultimate_tech.iron_rod": "Iron Rod",
+  "item.ultimate_tech.lead_rod": "Lead Rod",
+  "item.ultimate_tech.lumium_rod": "Lumium Rod",
+  "item.ultimate_tech.nickel_rod": "Nickel Rod",
+  "item.ultimate_tech.osmium_rod": "Osmium Rod",
+  "item.ultimate_tech.platinum_rod": "Platinum Rod",
+  "item.ultimate_tech.signalum_rod": "Signalum Rod",
+  "item.ultimate_tech.silver_rod": "Silver Rod",
+  "item.ultimate_tech.steel_rod": "Steel Rod",
+  "item.ultimate_tech.tin_rod": "Tin Rod",
+  "item.ultimate_tech.uranium_rod": "Uranium Rod",
+  "item.ultimate_tech.zinc_rod": "Zinc Rod",
+
+  "creativetab.first_tab": "Ultimate Tech"
+}

@@ -1,0 +1,10 @@
+{
+  "fusion": {
+    "type": "base",
+    "emissive": true
+  },
+  "animation": {
+    "frametime": 2
+  }
+}
+
