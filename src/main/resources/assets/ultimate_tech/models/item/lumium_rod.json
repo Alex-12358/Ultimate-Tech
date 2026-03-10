@@ -1,6 +1,6 @@
 {  
   "parent" : "item/generated",  
   "textures" : {  
-    "layer0" : "ultimate_tech:item/lumium_rod"  
+    "layer0" : "ultimate_tech:item/rod/lumium_rod"
   }  
 }

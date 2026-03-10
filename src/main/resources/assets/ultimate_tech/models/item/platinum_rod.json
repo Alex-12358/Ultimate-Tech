@@ -1,6 +1,6 @@
 {  
   "parent" : "item/generated",  
   "textures" : {  
-    "layer0" : "ultimate_tech:item/platinum_rod"  
+    "layer0" : "ultimate_tech:item/rod/platinum_rod"
   }  
 }

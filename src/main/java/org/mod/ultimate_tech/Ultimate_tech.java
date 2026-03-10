@@ -13,9 +13,9 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.mod.ultimate_tech.block.ModBlocks;
-import org.mod.ultimate_tech.item.ModCreativeModTabs;
-import org.mod.ultimate_tech.item.ModItems;
+import org.mod.ultimate_tech.block.*;
+import org.mod.ultimate_tech.item.*;
+import org.mod.ultimate_tech.ui.ModCreativeModTabs;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -29,9 +29,29 @@ public class Ultimate_tech {
 
     public Ultimate_tech() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+        //item
         ModItems.register(modEventBus);
-        ModBlocks.register(modEventBus);
+        ModItemsRod.register();
+        ModItemsIngot.register();
+        ModItemsPlate.register();
+        ModItemsDust.register();
+        ModItemsNugget.register();
+        ModItemsRaw.register();
+        //block
+        ModBlocksOre.register(modEventBus);
+        ModBlocksDeepslateOre.register(modEventBus);
+        ModBlocksBlock.register(modEventBus);
+        ModBlocksRaw.register(modEventBus);
+        ModBlocksNetherOre.register(modEventBus);
+        ModBlocksEndOre.register(modEventBus);
+
+        ModBlocksOre.generate();
+        ModBlocksDeepslateOre.generate();
+        ModBlocksBlock.generate();
+        ModBlocksRaw.generate();
+        ModBlocksNetherOre.generate();
+        ModBlocksEndOre.generate();
+        //creative
         ModCreativeModTabs.register(modEventBus);
 
 
