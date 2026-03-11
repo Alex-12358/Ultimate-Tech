@@ -20,7 +20,7 @@ public class ModItemsNugget {
 
             NUGGETS.put(
                     material,
-                    ModItems.ITEMS.register(name,
+                    ModItemsUtils.ITEMS.register(name,
                             () -> new Item(new Item.Properties()))
             );
 

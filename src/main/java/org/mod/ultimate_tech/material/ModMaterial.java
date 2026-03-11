@@ -3,14 +3,14 @@ package org.mod.ultimate_tech.material;
 public enum ModMaterial {
 
     // VANILLA
-    IRON(true, true, true, true, true, false, false, true, true),
-    GOLD(true, true, true, true, true, true, false, true, true),
-    COPPER(true, true, true, true, true, false, false, true, true),
-    DIAMOND(true, true, true, true, true, false, false, true, true),
-    EMERALD(true, true, true, true, true, false, false, true, true),
-    REDSTONE(true, true, true, true, true, false, false, true, true),
-    LAPIS(true, true, true, true, true, false, false, true, true),
-    COAL(true, true, true, true, true, false, false, true, true),
+    IRON(true, true, true, true, false, false, false, true, true),
+    GOLD(true, true, true, true, false, true, false, true, true),
+    COPPER(true, true, true, true, false, false, false, true, true),
+    DIAMOND(true, true, true, true, false, false, false, true, true),
+    EMERALD(true, true, true, true, false, false, false, true, true),
+    REDSTONE(true, true, true, true, false, false, false, true, true),
+    LAPIS(true, true, true, true, false, false, false, true, true),
+    COAL(true, true, true, true, false, false, false, true, true),
 
     // MOD MATERIALS
     ALUMINUM(true, true, true, true, true, true, true, true, true),

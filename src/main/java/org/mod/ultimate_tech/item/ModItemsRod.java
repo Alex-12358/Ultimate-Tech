@@ -1,11 +1,7 @@
 package org.mod.ultimate_tech.item;
 
 import net.minecraft.world.item.Item;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.mod.ultimate_tech.Ultimate_tech;
 import org.mod.ultimate_tech.material.ModMaterial;
 
 import java.util.HashMap;
@@ -62,7 +58,7 @@ public class ModItemsRod {
 
             RODS.put(
                     material,
-                    ModItems.ITEMS.register(
+                    ModItemsUtils.ITEMS.register(
                             name,
                             () -> new Item(new Item.Properties())
                     )

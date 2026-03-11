@@ -1,0 +1,50 @@
+package org.mod.ultimate_tech.datagen;
+
+import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
+import org.mod.ultimate_tech.Ultimate_tech;
+import org.mod.ultimate_tech.block.*;
+import org.mod.ultimate_tech.block.custom.ModBlocks;
+
+public class ModBlockStateProvider extends BlockStateProvider {
+    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+        super(output, Ultimate_tech.MOD_ID, exFileHelper);
+    }
+
+    @Override
+    protected void registerStatesAndModels() {
+
+        // CORE BLOCKS
+        simpleBlock(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
+        simpleBlock(ModBlocks.MACHINE_STRUCTURAL_HOUSING.get());
+
+        // ORES
+        ModBlocksOre.ORES.values().forEach(this::simpleBlock);
+
+        // DEEPSLATE ORES
+        ModBlocksDeepslateOre.ORES.values().forEach(this::simpleBlock);
+
+        // NETHER ORES
+        ModBlocksNetherOre.ORES.values().forEach(this::simpleBlock);
+
+        // END ORES
+        ModBlocksEndOre.ORES.values().forEach(this::simpleBlock);
+
+        // STORAGE BLOCKS
+        ModBlocksBlock.BLOCK.values().forEach(this::simpleBlock);
+
+        // RAW BLOCKS
+        ModBlocksRaw.RAW_BLOCKS.values().forEach(this::simpleBlock);
+    }
+
+    private void simpleBlock(RegistryObject<Block> block) {
+        simpleBlockWithItem(
+                block.get(),
+                cubeAll(block.get())
+        );
+
+    }
+}

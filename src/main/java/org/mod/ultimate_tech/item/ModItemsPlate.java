@@ -18,7 +18,7 @@ public class ModItemsPlate {
 
             PLATES.put(
                     material,
-                    ModItems.ITEMS.register(name,
+                    ModItemsUtils.ITEMS.register(name,
                             () -> new Item(new Item.Properties()))
             );
 

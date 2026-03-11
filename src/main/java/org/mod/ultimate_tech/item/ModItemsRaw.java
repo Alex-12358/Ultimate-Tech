@@ -7,7 +7,7 @@ import org.mod.ultimate_tech.material.ModMaterial;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.mod.ultimate_tech.item.ModItems.ITEMS;
+import static org.mod.ultimate_tech.item.ModItemsUtils.ITEMS;
 
 public class ModItemsRaw {
     public static final Map<ModMaterial, RegistryObject<Item>> RAW_ITEMS = new HashMap<>();

@@ -30,7 +30,7 @@ public class Ultimate_tech {
     public Ultimate_tech() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         //item
-        ModItems.register(modEventBus);
+        ModItemsUtils.register(modEventBus);
         ModItemsRod.register();
         ModItemsIngot.register();
         ModItemsPlate.register();
@@ -38,13 +38,7 @@ public class Ultimate_tech {
         ModItemsNugget.register();
         ModItemsRaw.register();
         //block
-        ModBlocksOre.register(modEventBus);
-        ModBlocksDeepslateOre.register(modEventBus);
-        ModBlocksBlock.register(modEventBus);
-        ModBlocksRaw.register(modEventBus);
-        ModBlocksNetherOre.register(modEventBus);
-        ModBlocksEndOre.register(modEventBus);
-
+        ModBlockUtils.register(modEventBus);
         ModBlocksOre.generate();
         ModBlocksDeepslateOre.generate();
         ModBlocksBlock.generate();

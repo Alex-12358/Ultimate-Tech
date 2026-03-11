@@ -21,7 +21,7 @@ public class ModItemsIngot {
 
             INGOTS.put(
                     material,
-                    ModItems.ITEMS.register(name,
+                    ModItemsUtils.ITEMS.register(name,
                             () -> new Item(new Item.Properties()))
             );
 
