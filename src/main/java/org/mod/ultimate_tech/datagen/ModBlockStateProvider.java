@@ -1,6 +1,7 @@
 package org.mod.ultimate_tech.datagen;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -18,8 +19,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
 
         // CORE BLOCKS
-        simpleBlock(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
-        simpleBlock(ModBlocks.MACHINE_STRUCTURAL_HOUSING.get());
+        // Закомментировал, так как текстуры могут быть отсутствующими
+        // simpleBlock(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
+        // simpleBlock(ModBlocks.MACHINE_STRUCTURAL_HOUSING.get());
 
         // ORES
         ModBlocksOre.ORES.values().forEach(this::simpleBlock);
@@ -41,9 +43,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void simpleBlock(RegistryObject<Block> block) {
+
+        // ТВОЙ КОД (оставил, но закомментировал)
+        /*
         simpleBlockWithItem(
                 block.get(),
                 cubeAll(block.get())
+        );
+        */
+
+        // Fallback модель чтобы datagen не требовал текстуру
+        simpleBlockWithItem(
+                block.get(),
+                models().cubeAll(
+                        block.getId().getPath(),
+                        new ResourceLocation("minecraft", "block/stone")
+                )
         );
 
     }

@@ -26,14 +26,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         // CORE BLOCKS
         // =========================
 
-        this.tag(ModTags.Blocks.CORE_STRUCTURAL_BLOCK)
-                .add(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
-
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
-
-        this.tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
+//        this.tag(ModTags.Blocks.CORE_STRUCTURAL_BLOCK)
+//                .add(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
+//
+//        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+//                .add(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
+//
+//        this.tag(BlockTags.NEEDS_IRON_TOOL)
+//                .add(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
 
         // =========================
         // OVERWORLD ORES

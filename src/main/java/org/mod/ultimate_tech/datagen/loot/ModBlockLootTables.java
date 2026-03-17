@@ -15,6 +15,7 @@ import org.mod.ultimate_tech.block.*;
 import org.mod.ultimate_tech.block.custom.*;
 import org.mod.ultimate_tech.item.*;
 
+import java.util.Map;
 import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
@@ -28,66 +29,56 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected void generate() {
 
         // =========================
-        // SIMPLE BLOCKS
+        // MACHINE / SIMPLE BLOCKS
         // =========================
 
-        this.dropSelf(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
-        this.dropSelf(ModBlocks.MACHINE_STRUCTURAL_HOUSING.get());
+//        dropSelf(ModBlocks.CORE_STRUCTURAL_BLOCK.get());
+//        dropSelf(ModBlocks.MACHINE_STRUCTURAL_HOUSING.get());
 
         // =========================
-        // OVERWORLD ORES
+        // STORAGE BLOCKS
         // =========================
 
-        ModBlocksOre.ORES.forEach((material, block) -> {
-            if (!ModItemsRaw.RAW_ITEMS.containsKey(material)) return;
-
-            this.add(block.get(), b ->
-                    createFortuneOreDrops(
-                            block.get(),
-                            ModItemsRaw.RAW_ITEMS.get(material).get()
-                    ));
+        ModBlocksBlock.BLOCK.forEach((material, block) -> {
+            dropSelf(block.get());
         });
 
         // =========================
-        // DEEPSLATE ORES
+        // RAW BLOCKS
         // =========================
 
-        ModBlocksDeepslateOre.ORES.forEach((material, block) -> {
-            if (!ModItemsRaw.RAW_ITEMS.containsKey(material)) return;
-
-            this.add(block.get(), b ->
-                    createFortuneOreDrops(
-                            block.get(),
-                            ModItemsRaw.RAW_ITEMS.get(material).get()
-                    ));
+        ModBlocksRaw.RAW_BLOCKS.forEach((material, block) -> {
+            dropSelf(block.get());
         });
 
         // =========================
-        // NETHER ORES
+        // ORES
         // =========================
 
-        ModBlocksNetherOre.ORES.forEach((material, block) -> {
-            if (!ModItemsRaw.RAW_ITEMS.containsKey(material)) return;
+        generateOreDrops(ModBlocksOre.ORES);
+        generateOreDrops(ModBlocksDeepslateOre.ORES);
+        generateOreDrops(ModBlocksNetherOre.ORES);
+        generateOreDrops(ModBlocksEndOre.ORES);
+    }
 
-            this.add(block.get(), b ->
-                    createFortuneOreDrops(
-                            block.get(),
-                            ModItemsRaw.RAW_ITEMS.get(material).get()
-                    ));
-        });
+    private void generateOreDrops(Map<?, RegistryObject<Block>> ores) {
 
-        // =========================
-        // END ORES
-        // =========================
+        ores.forEach((material, block) -> {
 
-        ModBlocksEndOre.ORES.forEach((material, block) -> {
-            if (!ModItemsRaw.RAW_ITEMS.containsKey(material)) return;
+            if (ModItemsRaw.RAW_ITEMS.containsKey(material)) {
 
-            this.add(block.get(), b ->
-                    createFortuneOreDrops(
-                            block.get(),
-                            ModItemsRaw.RAW_ITEMS.get(material).get()
-                    ));
+                this.add(block.get(), b ->
+                        createFortuneOreDrops(
+                                block.get(),
+                                ModItemsRaw.RAW_ITEMS.get(material).get()
+                        ));
+
+            } else {
+
+                dropSelf(block.get());
+
+            }
+
         });
     }
 

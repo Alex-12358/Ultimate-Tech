@@ -11,6 +11,7 @@ import static org.mod.ultimate_tech.block.ModBlockUtils.simpleBlock;
 
 public class ModBlocksRaw {
 
+
     public static final Map<ModMaterial, RegistryObject<Block>> RAW_BLOCKS = new HashMap<>();
 
     public static void generate() {

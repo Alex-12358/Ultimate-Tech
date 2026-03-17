@@ -14,6 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.mod.ultimate_tech.block.*;
+import org.mod.ultimate_tech.block.custom.ModBlocks;
 import org.mod.ultimate_tech.item.*;
 import org.mod.ultimate_tech.ui.ModCreativeModTabs;
 import org.slf4j.Logger;
@@ -30,21 +31,21 @@ public class Ultimate_tech {
     public Ultimate_tech() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         //item
-        ModItemsUtils.register(modEventBus);
         ModItemsRod.register();
         ModItemsIngot.register();
         ModItemsPlate.register();
         ModItemsDust.register();
         ModItemsNugget.register();
         ModItemsRaw.register();
+        ModItemsUtils.register(modEventBus);
         //block
-        ModBlockUtils.register(modEventBus);
         ModBlocksOre.generate();
         ModBlocksDeepslateOre.generate();
         ModBlocksBlock.generate();
         ModBlocksRaw.generate();
         ModBlocksNetherOre.generate();
         ModBlocksEndOre.generate();
+        ModBlockUtils.register(modEventBus);
         //creative
         ModCreativeModTabs.register(modEventBus);
 
