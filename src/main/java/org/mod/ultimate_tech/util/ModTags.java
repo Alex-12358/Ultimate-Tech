@@ -10,7 +10,7 @@ import org.mod.ultimate_tech.Ultimate_tech;
 
 public class ModTags {
     public static class Blocks {
-        public static final TagKey<Block> CORE_STRUCTURAL_BLOCK = tag("core_structural_block");
+//        public static final TagKey<Block> CORE_STRUCTURAL_BLOCK = tag("core_structural_block");
 
         public static final TagKey<Block> ORES = tag("ores");
         public static final TagKey<Block> DEEPSLATE_ORES = tag("deepslate_ores");
@@ -19,13 +19,16 @@ public class ModTags {
         public static final TagKey<Block> RAW_BLOCKS = tag("raw_blocks");
         public static final TagKey<Block> STORAGE_BLOCKS = tag("storage_blocks");
 
+        public static final TagKey<Block> NEED_TOOL = tag("need_tool");
+
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(Ultimate_tech.MOD_ID, name));
         }
     }
 
     public static class Items {
-//        public static final TagKey<Item> MACHINE_STRUCTURAL_HOUSING = tag("machine_structural_housing");
+
+//        public static final TagKey<Item> NEED_TOOL = tag("need_tool");
 
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(Ultimate_tech.MOD_ID, name));

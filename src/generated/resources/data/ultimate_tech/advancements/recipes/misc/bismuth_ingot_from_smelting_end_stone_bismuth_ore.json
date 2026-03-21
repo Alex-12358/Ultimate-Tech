@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_end_stone_bismuth_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultimate_tech:end_stone_bismuth_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultimate_tech:bismuth_ingot_from_smelting_end_stone_bismuth_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_end_stone_bismuth_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultimate_tech:bismuth_ingot_from_smelting_end_stone_bismuth_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}

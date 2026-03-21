@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "strontium",
+  "ingredient": {
+    "item": "ultimate_tech:nether_strontium_ore"
+  },
+  "result": "ultimate_tech:strontium_ingot"
+}

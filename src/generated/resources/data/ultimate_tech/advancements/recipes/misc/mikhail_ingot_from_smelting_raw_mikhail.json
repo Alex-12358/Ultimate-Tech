@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_mikhail": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultimate_tech:raw_mikhail"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultimate_tech:mikhail_ingot_from_smelting_raw_mikhail"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_mikhail",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultimate_tech:mikhail_ingot_from_smelting_raw_mikhail"
+    ]
+  },
+  "sends_telemetry_event": false
+}

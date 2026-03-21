@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "mikhail",
+  "ingredient": {
+    "item": "ultimate_tech:nether_mikhail_ore"
+  },
+  "result": "ultimate_tech:mikhail_ingot"
+}

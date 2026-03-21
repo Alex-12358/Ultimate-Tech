@@ -7,7 +7,7 @@ import org.mod.ultimate_tech.material.ModMaterial;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.mod.ultimate_tech.block.ModBlockUtils.simpleBlock;
+import static org.mod.ultimate_tech.block.ModBlockUtils.simpleDeepslateOre;
 
 public class ModBlocksDeepslateOre {
 
@@ -19,7 +19,7 @@ public class ModBlocksDeepslateOre {
             String name = "deepslate_" + material.getName() + "_ore";
             ORES.put(
                     material,
-                    simpleBlock(name)
+                    simpleDeepslateOre(name)
             );
         }
 

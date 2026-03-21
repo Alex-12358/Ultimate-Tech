@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "silver",
+  "ingredient": {
+    "item": "ultimate_tech:deepslate_silver_ore"
+  },
+  "result": "ultimate_tech:silver_ingot"
+}

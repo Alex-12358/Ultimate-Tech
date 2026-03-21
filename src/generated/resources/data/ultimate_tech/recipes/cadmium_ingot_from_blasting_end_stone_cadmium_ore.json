@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "cadmium",
+  "ingredient": {
+    "item": "ultimate_tech:end_stone_cadmium_ore"
+  },
+  "result": "ultimate_tech:cadmium_ingot"
+}

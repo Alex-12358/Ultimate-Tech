@@ -24,6 +24,13 @@ versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
+[[dependencies."${mod_id}"]]
+modId = "botarium"
+mandatory = true
+versionRange = "2.3.4"
+ordering = "NONE"
+side = "BOTH"
+
 # Fusion as a required dependency
 [[dependencies."${mod_id}"]]
 modId = "fusion"

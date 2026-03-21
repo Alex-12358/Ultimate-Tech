@@ -14,8 +14,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.mod.ultimate_tech.block.*;
+import org.mod.ultimate_tech.block.game.*;
+import org.mod.ultimate_tech.item.custom_item.*;
 import org.mod.ultimate_tech.block.custom.ModBlocks;
-import org.mod.ultimate_tech.item.*;
+import org.mod.ultimate_tech.botarium.ModBlockEntities;
+import org.mod.ultimate_tech.item.tool.*;
 import org.mod.ultimate_tech.ui.ModCreativeModTabs;
 import org.slf4j.Logger;
 
@@ -30,14 +33,27 @@ public class Ultimate_tech {
 
     public Ultimate_tech() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModBlocks.init();
         //item
-        ModItemsRod.register();
-        ModItemsIngot.register();
-        ModItemsPlate.register();
-        ModItemsDust.register();
-        ModItemsNugget.register();
-        ModItemsRaw.register();
+        ModItemsRod.generate();
+        ModItemsIngot.generate();
+        ModItemsPlate.generate();
+        ModItemsDust.generate();
+        ModItemsNugget.generate();
+        ModItemsRaw.generate();
         ModItemsUtils.register(modEventBus);
+
+        ModItemToolTiers.generate();
+        ModItemsToolAxe.generate();
+        ModItemsToolHoe.generate();
+        ModItemsToolShovel.generate();
+        ModItemsToolPickaxe.generate();
+        ModItemsToolSword.generate();
+
+        ModGamesBlock.generate();
+        ModGamesOre.generate();
+        ModGamesDeepslateOre.generate();
+        ModGamesOre.generate();
         //block
         ModBlocksOre.generate();
         ModBlocksDeepslateOre.generate();
@@ -45,6 +61,7 @@ public class Ultimate_tech {
         ModBlocksRaw.generate();
         ModBlocksNetherOre.generate();
         ModBlocksEndOre.generate();
+        ModBlockEntities.register(modEventBus);
         ModBlockUtils.register(modEventBus);
         //creative
         ModCreativeModTabs.register(modEventBus);

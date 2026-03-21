@@ -1,0 +1,9 @@
+// 1.20.1	2026-03-17T21:08:18.7187656	Tags for minecraft:block mod id ultimate_tech
+0746f8510aa8078922957f770d7e9150b3335ed6 data/minecraft/tags/blocks/mineable/pickaxe.json
+0746f8510aa8078922957f770d7e9150b3335ed6 data/minecraft/tags/blocks/needs_iron_tool.json
+2fd2a1dbe1d9c94d99fdd421002165c30a75ca91 data/ultimate_tech/tags/blocks/deepslate_ores.json
+f6601f961c0e4e7ec2bfbe22d4426e5e76df68b0 data/ultimate_tech/tags/blocks/end_ores.json
+5073f551be2564a9171e41749a9ff21aabd5d86d data/ultimate_tech/tags/blocks/nether_ores.json
+2268bbc1cb5bc5e17cce21ecfd74f6ea52e24f6e data/ultimate_tech/tags/blocks/ores.json
+b3d2050624bc6a0b25ad8fd52a0652493b16d313 data/ultimate_tech/tags/blocks/raw_blocks.json
+94f9d89de5d8b585f3761fcbadac7438e258db7f data/ultimate_tech/tags/blocks/storage_blocks.json

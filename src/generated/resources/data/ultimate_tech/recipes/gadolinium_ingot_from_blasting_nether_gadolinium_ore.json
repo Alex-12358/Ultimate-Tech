@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "gadolinium",
+  "ingredient": {
+    "item": "ultimate_tech:nether_gadolinium_ore"
+  },
+  "result": "ultimate_tech:gadolinium_ingot"
+}

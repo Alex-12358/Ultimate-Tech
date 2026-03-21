@@ -9,7 +9,8 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.mod.ultimate_tech.Ultimate_tech;
 import org.mod.ultimate_tech.block.*;
-import org.mod.ultimate_tech.item.*;
+import org.mod.ultimate_tech.item.custom_item.ModItemsIngot;
+import org.mod.ultimate_tech.item.custom_item.ModItemsRaw;
 
 import java.util.List;
 import java.util.function.Consumer;

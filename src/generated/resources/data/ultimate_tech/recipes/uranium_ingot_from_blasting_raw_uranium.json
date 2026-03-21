@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "uranium",
+  "ingredient": {
+    "item": "ultimate_tech:raw_uranium"
+  },
+  "result": "ultimate_tech:uranium_ingot"
+}

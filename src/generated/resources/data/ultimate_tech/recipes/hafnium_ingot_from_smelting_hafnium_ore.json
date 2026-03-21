@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "hafnium",
+  "ingredient": {
+    "item": "ultimate_tech:hafnium_ore"
+  },
+  "result": "ultimate_tech:hafnium_ingot"
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cadmium_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultimate_tech:cadmium_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultimate_tech:cadmium_ingot_from_blasting_cadmium_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cadmium_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultimate_tech:cadmium_ingot_from_blasting_cadmium_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}

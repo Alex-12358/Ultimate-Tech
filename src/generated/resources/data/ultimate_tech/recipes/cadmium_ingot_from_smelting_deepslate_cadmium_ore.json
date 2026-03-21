@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "cadmium",
+  "ingredient": {
+    "item": "ultimate_tech:deepslate_cadmium_ore"
+  },
+  "result": "ultimate_tech:cadmium_ingot"
+}

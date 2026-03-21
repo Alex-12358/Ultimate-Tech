@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ultimate_tech:item/dust/arsenic_dust"
+  }
+}

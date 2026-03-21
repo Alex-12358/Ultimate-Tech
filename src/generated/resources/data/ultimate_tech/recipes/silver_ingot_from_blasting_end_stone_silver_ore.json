@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "silver",
+  "ingredient": {
+    "item": "ultimate_tech:end_stone_silver_ore"
+  },
+  "result": "ultimate_tech:silver_ingot"
+}

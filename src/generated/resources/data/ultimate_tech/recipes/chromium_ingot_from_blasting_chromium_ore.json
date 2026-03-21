@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "chromium",
+  "ingredient": {
+    "item": "ultimate_tech:chromium_ore"
+  },
+  "result": "ultimate_tech:chromium_ingot"
+}

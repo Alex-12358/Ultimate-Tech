@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "germanium",
+  "ingredient": {
+    "item": "ultimate_tech:end_stone_germanium_ore"
+  },
+  "result": "ultimate_tech:germanium_ingot"
+}

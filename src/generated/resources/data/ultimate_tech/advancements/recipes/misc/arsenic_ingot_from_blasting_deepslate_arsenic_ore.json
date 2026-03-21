@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_deepslate_arsenic_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultimate_tech:deepslate_arsenic_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultimate_tech:arsenic_ingot_from_blasting_deepslate_arsenic_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_deepslate_arsenic_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultimate_tech:arsenic_ingot_from_blasting_deepslate_arsenic_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}

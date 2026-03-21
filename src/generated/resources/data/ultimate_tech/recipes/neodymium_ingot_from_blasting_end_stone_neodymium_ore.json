@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "neodymium",
+  "ingredient": {
+    "item": "ultimate_tech:end_stone_neodymium_ore"
+  },
+  "result": "ultimate_tech:neodymium_ingot"
+}

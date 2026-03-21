@@ -7,7 +7,7 @@ import org.mod.ultimate_tech.material.ModMaterial;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.mod.ultimate_tech.block.ModBlockUtils.simpleBlock;
+import static org.mod.ultimate_tech.block.ModBlockUtils.simpleEndOre;
 
 public class ModBlocksEndOre {
 
@@ -19,7 +19,7 @@ public class ModBlocksEndOre {
             String name = "end_stone_" + material.getName() + "_ore";
             ORES.put(
                     material,
-                    simpleBlock(name)
+                    simpleEndOre(name)
             );
         }
 

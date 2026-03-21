@@ -10,7 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.mod.ultimate_tech.Ultimate_tech;
-import org.mod.ultimate_tech.item.ModItemsUtils;
+import org.mod.ultimate_tech.item.custom_item.ModItemsUtils;
 
 import java.util.function.Supplier;
 
@@ -36,13 +36,63 @@ public class ModBlockUtils {
 
         return registered;
     }
-
+    // если нету крафтов
     public static RegistryObject<Block> simpleBlock(String name) {
 
         return ModBlockUtils.registerBlock(
                 BLOCKS,
                 name,
                 () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK))
+        );
+
+    }
+    // Обычная руда
+    public static RegistryObject<Block> simpleOre(String name) {
+
+        return ModBlockUtils.registerBlock(
+                BLOCKS,
+                name,
+                () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE))
+        );
+
+    }
+    // Глубинная руда
+    public static RegistryObject<Block> simpleDeepslateOre(String name) {
+
+        return ModBlockUtils.registerBlock(
+                BLOCKS,
+                name,
+                () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE))
+        );
+
+    }
+    // Незер руда
+    public static RegistryObject<Block> simpleNetherOre(String name) {
+
+        return ModBlockUtils.registerBlock(
+                BLOCKS,
+                name,
+                () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERRACK))
+        );
+
+    }
+    // Энд руда
+    public static RegistryObject<Block> simpleEndOre(String name) {
+
+        return ModBlockUtils.registerBlock(
+                BLOCKS,
+                name,
+                () -> new Block(BlockBehaviour.Properties.copy(Blocks.END_STONE))
+        );
+
+    }
+    // если нету крафтов
+    public static RegistryObject<Block> simpleBlockOff(String name) {
+
+        return ModBlockUtils.registerBlock(
+                BLOCKS,
+                name,
+                () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noLootTable())
         );
 
     }

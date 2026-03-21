@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "zirconium",
+  "ingredient": {
+    "item": "ultimate_tech:zirconium_ore"
+  },
+  "result": "ultimate_tech:zirconium_ingot"
+}

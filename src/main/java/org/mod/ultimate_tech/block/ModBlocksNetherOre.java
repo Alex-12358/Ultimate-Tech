@@ -7,7 +7,7 @@ import org.mod.ultimate_tech.material.ModMaterial;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.mod.ultimate_tech.block.ModBlockUtils.simpleBlock;
+import static org.mod.ultimate_tech.block.ModBlockUtils.simpleNetherOre;
 
 public class ModBlocksNetherOre {
 
@@ -20,7 +20,7 @@ public class ModBlocksNetherOre {
             String name = "nether_" + material.getName() + "_ore";
             ORES.put(
                     material,
-                    simpleBlock(name)
+                    simpleNetherOre(name)
             );
         }
 

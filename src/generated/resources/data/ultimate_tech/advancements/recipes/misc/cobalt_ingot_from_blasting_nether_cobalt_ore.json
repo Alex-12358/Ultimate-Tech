@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nether_cobalt_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultimate_tech:nether_cobalt_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultimate_tech:cobalt_ingot_from_blasting_nether_cobalt_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_nether_cobalt_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultimate_tech:cobalt_ingot_from_blasting_nether_cobalt_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}

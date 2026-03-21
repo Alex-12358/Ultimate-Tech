@@ -10,7 +10,10 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.mod.ultimate_tech.Ultimate_tech;
 import org.mod.ultimate_tech.block.*;
-import org.mod.ultimate_tech.item.*;
+import org.mod.ultimate_tech.block.custom.ModBlocks;
+import org.mod.ultimate_tech.block.game.*;
+import org.mod.ultimate_tech.item.custom_item.*;
+import org.mod.ultimate_tech.item.tool.*;
 
 public class ModCreativeModTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
@@ -32,6 +35,8 @@ public class ModCreativeModTabs {
                     .withSearchBar()
                     .displayItems((params, output) -> {
 
+                        output.accept(ModBlocks.BATTERY.get());
+
                         ModItemsRod.RODS.values().forEach(item -> output.accept(item.get()));
                         ModItemsIngot.INGOTS.values().forEach(item -> output.accept(item.get()));
                         ModItemsPlate.PLATES.values().forEach(item -> output.accept(item.get()));
@@ -46,6 +51,15 @@ public class ModCreativeModTabs {
                         ModBlocksBlock.BLOCK.values().forEach(block -> output.accept(block.get()));
                         ModBlocksNetherOre.ORES.values().forEach(block -> output.accept(block.get()));
                         ModBlocksEndOre.ORES.values().forEach(block -> output.accept(block.get()));
+
+                        ModGamesBlock.BLOCK.values().forEach(block -> output.accept(block.get()));
+                        ModGamesOre.ORES.values().forEach(block -> output.accept(block.get()));
+                        ModGamesDeepslateOre.ORES.values().forEach(block -> output.accept(block.get()));
+                        ModItemsToolSword.SWORDS.values().forEach(item -> output.accept(item.get()));
+                        ModItemsToolPickaxe.PICKAXES.values().forEach(item -> output.accept(item.get()));
+                        ModItemsToolAxe.AXES.values().forEach(item -> output.accept(item.get()));
+                        ModItemsToolShovel.SHOVELS.values().forEach(item -> output.accept(item.get()));
+                        ModItemsToolHoe.HOES.values().forEach(item -> output.accept(item.get()));
 
                     }).build());
 
@@ -196,4 +210,26 @@ public class ModCreativeModTabs {
                     ).build());
 
 
+    // =========================
+    // CUSTOM
+    // =========================
+
+    public static final RegistryObject<CreativeModeTab> CUSTOM_TAB =
+            CREATIVE_MODE_TABS.register("custom_tab", () -> CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(Items.NETHER_STAR))
+                    .title(Component.translatable("creativetab.ultimate_tech.all"))
+                    .withSearchBar()
+                    .displayItems((params, output) -> {
+
+                        output.accept(ModBlocks.BATTERY.get());
+
+                        ModGamesBlock.BLOCK.values().forEach(block -> output.accept(block.get()));
+                        ModGamesOre.ORES.values().forEach(block -> output.accept(block.get()));
+                        ModGamesDeepslateOre.ORES.values().forEach(block -> output.accept(block.get()));
+                        ModItemsToolSword.SWORDS.values().forEach(item -> output.accept(item.get()));
+                        ModItemsToolPickaxe.PICKAXES.values().forEach(item -> output.accept(item.get()));
+                        ModItemsToolAxe.AXES.values().forEach(item -> output.accept(item.get()));
+                        ModItemsToolShovel.SHOVELS.values().forEach(item -> output.accept(item.get()));
+                        ModItemsToolHoe.HOES.values().forEach(item -> output.accept(item.get()));
+                    }).build());
 }

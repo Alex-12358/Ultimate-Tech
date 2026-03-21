@@ -8,7 +8,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import org.mod.ultimate_tech.Ultimate_tech;
-import org.mod.ultimate_tech.item.*;
+import org.mod.ultimate_tech.item.custom_item.*;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -22,7 +22,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         ModItemsRod.RODS.values().forEach(item -> simpleItem(item, "rod"));
 
         // ingots
-        ModItemsIngot.INGOTS.values().forEach(item -> simpleItem(item, "ingot"));
+        ModItemsIngot.INGOTS.values().forEach(item -> simpleItem(item, "ignot"));
 
         // plates
         ModItemsPlate.PLATES.values().forEach(item -> simpleItem(item, "plate"));

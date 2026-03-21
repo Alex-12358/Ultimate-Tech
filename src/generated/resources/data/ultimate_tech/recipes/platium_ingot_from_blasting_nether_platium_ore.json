@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "platium",
+  "ingredient": {
+    "item": "ultimate_tech:nether_platium_ore"
+  },
+  "result": "ultimate_tech:platium_ingot"
+}
