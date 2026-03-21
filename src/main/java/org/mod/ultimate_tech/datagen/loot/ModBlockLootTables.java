@@ -11,7 +11,7 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
-import org.mod.ultimate_tech.block.*;
+import org.mod.ultimate_tech.block.ore.*;
 import org.mod.ultimate_tech.item.custom_item.ModItemsRaw;
 
 import java.util.Map;

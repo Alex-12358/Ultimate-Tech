@@ -1,9 +1,9 @@
-// 1.20.1	2026-03-17T21:08:18.7187656	Tags for minecraft:block mod id ultimate_tech
-0746f8510aa8078922957f770d7e9150b3335ed6 data/minecraft/tags/blocks/mineable/pickaxe.json
-0746f8510aa8078922957f770d7e9150b3335ed6 data/minecraft/tags/blocks/needs_iron_tool.json
-2fd2a1dbe1d9c94d99fdd421002165c30a75ca91 data/ultimate_tech/tags/blocks/deepslate_ores.json
-f6601f961c0e4e7ec2bfbe22d4426e5e76df68b0 data/ultimate_tech/tags/blocks/end_ores.json
-5073f551be2564a9171e41749a9ff21aabd5d86d data/ultimate_tech/tags/blocks/nether_ores.json
-2268bbc1cb5bc5e17cce21ecfd74f6ea52e24f6e data/ultimate_tech/tags/blocks/ores.json
-b3d2050624bc6a0b25ad8fd52a0652493b16d313 data/ultimate_tech/tags/blocks/raw_blocks.json
-94f9d89de5d8b585f3761fcbadac7438e258db7f data/ultimate_tech/tags/blocks/storage_blocks.json
+// 1.20.1	2026-03-21T21:11:58.1982455	Tags for minecraft:block mod id ultimate_tech
+35f1f286093387abc08241a37d227b95b30fce8f data/minecraft/tags/blocks/mineable/pickaxe.json
+35f1f286093387abc08241a37d227b95b30fce8f data/minecraft/tags/blocks/needs_iron_tool.json
+93754c705813d3d39ceb849513f9582d0c77a329 data/ultimate_tech/tags/blocks/deepslate_ores.json
+f8d1c7af43cde197a7bb76639d4ac6171afb8d58 data/ultimate_tech/tags/blocks/end_ores.json
+1820b15a04acefb649c044144d307406b4d0ae33 data/ultimate_tech/tags/blocks/nether_ores.json
+1c7ecd84866eb502e09bc67491dd6c65dc5a5e83 data/ultimate_tech/tags/blocks/ores.json
+fb6a632df1fc6c701f261e6d6e91c144afef4e1c data/ultimate_tech/tags/blocks/raw_blocks.json
+f6836408d500a335192b6278a3968db122b02f47 data/ultimate_tech/tags/blocks/storage_blocks.json

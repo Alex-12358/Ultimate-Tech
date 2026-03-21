@@ -3,7 +3,7 @@ package org.mod.ultimate_tech.block.custom;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 
-import static org.mod.ultimate_tech.block.ModBlockUtils.*;
+import static org.mod.ultimate_tech.block.ore.ModBlockUtils.*;
 
 public class ModBlocks {
 //    public static final RegistryObject<Block> CORE_STRUCTURAL_BLOCK = simpleBlock("core_structural_block");

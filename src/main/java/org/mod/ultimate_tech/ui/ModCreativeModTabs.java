@@ -9,9 +9,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.mod.ultimate_tech.Ultimate_tech;
-import org.mod.ultimate_tech.block.*;
 import org.mod.ultimate_tech.block.custom.ModBlocks;
-import org.mod.ultimate_tech.block.game.*;
+import org.mod.ultimate_tech.block.ore.*;
 import org.mod.ultimate_tech.item.custom_item.*;
 import org.mod.ultimate_tech.item.tool.*;
 
@@ -52,9 +51,6 @@ public class ModCreativeModTabs {
                         ModBlocksNetherOre.ORES.values().forEach(block -> output.accept(block.get()));
                         ModBlocksEndOre.ORES.values().forEach(block -> output.accept(block.get()));
 
-                        ModGamesBlock.BLOCK.values().forEach(block -> output.accept(block.get()));
-                        ModGamesOre.ORES.values().forEach(block -> output.accept(block.get()));
-                        ModGamesDeepslateOre.ORES.values().forEach(block -> output.accept(block.get()));
                         ModItemsToolSword.SWORDS.values().forEach(item -> output.accept(item.get()));
                         ModItemsToolPickaxe.PICKAXES.values().forEach(item -> output.accept(item.get()));
                         ModItemsToolAxe.AXES.values().forEach(item -> output.accept(item.get()));
@@ -223,9 +219,6 @@ public class ModCreativeModTabs {
 
                         output.accept(ModBlocks.BATTERY.get());
 
-                        ModGamesBlock.BLOCK.values().forEach(block -> output.accept(block.get()));
-                        ModGamesOre.ORES.values().forEach(block -> output.accept(block.get()));
-                        ModGamesDeepslateOre.ORES.values().forEach(block -> output.accept(block.get()));
                         ModItemsToolSword.SWORDS.values().forEach(item -> output.accept(item.get()));
                         ModItemsToolPickaxe.PICKAXES.values().forEach(item -> output.accept(item.get()));
                         ModItemsToolAxe.AXES.values().forEach(item -> output.accept(item.get()));

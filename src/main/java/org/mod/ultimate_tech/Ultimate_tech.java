@@ -13,12 +13,11 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.mod.ultimate_tech.block.*;
-import org.mod.ultimate_tech.block.game.*;
+import org.mod.ultimate_tech.block.ore.*;
+import org.mod.ultimate_tech.item.tool.*;
 import org.mod.ultimate_tech.item.custom_item.*;
 import org.mod.ultimate_tech.block.custom.ModBlocks;
 import org.mod.ultimate_tech.botarium.ModBlockEntities;
-import org.mod.ultimate_tech.item.tool.*;
 import org.mod.ultimate_tech.ui.ModCreativeModTabs;
 import org.slf4j.Logger;
 
@@ -49,11 +48,6 @@ public class Ultimate_tech {
         ModItemsToolShovel.generate();
         ModItemsToolPickaxe.generate();
         ModItemsToolSword.generate();
-
-        ModGamesBlock.generate();
-        ModGamesOre.generate();
-        ModGamesDeepslateOre.generate();
-        ModGamesOre.generate();
         //block
         ModBlocksOre.generate();
         ModBlocksDeepslateOre.generate();

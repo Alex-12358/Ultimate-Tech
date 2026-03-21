@@ -182,6 +182,17 @@
   },
   "active": "088f5d73bb3bf799",
   "lastOpenFiles": [
+    "run/logs/debug-2.log.gz",
+    "run/logs/2026-03-21-2.log.gz",
+    "build/resources/main/data/ultimate_tech/loot_tables/blocks/sapphire_block.json",
+    "build/resources/main/data/ultimate_tech/loot_tables/blocks/ruby_block.json",
+    "build/resources/main/data/ultimate_tech/loot_tables/blocks/garnet_ore.json",
+    "build/resources/main/data/ultimate_tech/loot_tables/blocks/deepslate_morganite_ore.json",
+    "build/resources/main/data/ultimate_tech/loot_tables/blocks/amethyst_ore.json",
+    "build/resources/main/assets/ultimate_tech/models/item/garnet_ore.json",
+    "build/resources/main/assets/ultimate_tech/models/item/deepslate_jade_ore.json",
+    "build/resources/main/assets/ultimate_tech/models/item/aquamarine_ore.json",
+    "build/resources/main/assets/ultimate_tech/models/item/aquamarine_block.json",
     "README.md"
   ]
 }

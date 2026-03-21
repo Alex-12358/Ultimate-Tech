@@ -1,11 +1,8 @@
 package org.mod.ultimate_tech.material;
 
 public enum ModGames {
-    // Рубин
     RUBY(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             4, 2.0f,
             1, 1.0f,
@@ -13,12 +10,8 @@ public enum ModGames {
             0.0f, 0.0f,
             0, 0.0f
     ),
-
-    // Сапфир
     SAPPHIRE(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             5, 1.8f,
             2, 1.0f,
@@ -26,12 +19,8 @@ public enum ModGames {
             1.0f, 0.0f,
             0, 0.0f
     ),
-
-    // Топаз
     TOPAZ(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             4, 2.1f,
             1, 1.0f,
@@ -39,12 +28,8 @@ public enum ModGames {
             0.5f, 0.0f,
             0, 0.0f
     ),
-
-    // Аметист
     AMETHYST(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             3, 2.4f,
             1, 1.2f,
@@ -52,12 +37,8 @@ public enum ModGames {
             0.0f, 0.1f,
             0, 0.0f
     ),
-
-    // Гранат
     GARNET(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             4, 2.0f,
             1, 1.0f,
@@ -65,12 +46,8 @@ public enum ModGames {
             0.0f, 0.0f,
             0, 0.0f
     ),
-
-    // Опал
     OPAL(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             3, 2.3f,
             1, 1.1f,
@@ -78,12 +55,8 @@ public enum ModGames {
             0.2f, 0.0f,
             0, 0.0f
     ),
-
-    // Нефрит
     JADE(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             4, 1.9f,
             2, 0.9f,
@@ -91,12 +64,8 @@ public enum ModGames {
             0.5f, -0.1f,
             0, 0.0f
     ),
-
-    // Малахит
     MALACHITE(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             4, 2.0f,
             1, 1.0f,
@@ -104,12 +73,8 @@ public enum ModGames {
             0.3f, 0.0f,
             0, 0.0f
     ),
-
-    // Аквамарин
     AQUAMARINE(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             4, 2.2f,
             1, 1.1f,
@@ -117,12 +82,8 @@ public enum ModGames {
             0.2f, 0.1f,
             0, 0.0f
     ),
-
-    // Шпинель
     SPINEL(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             5, 1.9f,
             2, 1.0f,
@@ -130,12 +91,8 @@ public enum ModGames {
             0.5f, 0.0f,
             0, 0.0f
     ),
-
-    // Циркон
     ZIRCON(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             4, 2.0f,
             1, 1.0f,
@@ -143,12 +100,8 @@ public enum ModGames {
             0.3f, 0.0f,
             0, 0.0f
     ),
-
-    // Морганит
     MORGANITE(
-            true, true,
-            true, true,
-            true, true,
+            true, true, true,
             true, true, true,
             4, 2.1f,
             1, 1.0f,
@@ -157,18 +110,13 @@ public enum ModGames {
             0, 0.0f
     );
 
-    // Наличие предметов/блоков
+    private final boolean hasGames;
     private final boolean hasSword;
     private final boolean hasPickaxe;
     private final boolean hasAxe;
     private final boolean hasShovel;
     private final boolean hasHoe;
-    private final boolean hasOre;
-    private final boolean hasDeepOre;
-    private final boolean hasBlock;
-    private final boolean hasGames;
 
-    // Статы инструментов
     private final int swordDamage;
     private final float swordSpeed;
 
@@ -185,15 +133,12 @@ public enum ModGames {
     private final float hoeSpeed;
 
     ModGames(
+            boolean hasGames,
             boolean hasSword,
             boolean hasPickaxe,
             boolean hasAxe,
             boolean hasShovel,
             boolean hasHoe,
-            boolean hasBlock,
-            boolean hasDeepOre,
-            boolean hasOre,
-            boolean hasGames,
             int swordDamage,
             float swordSpeed,
             int pickaxeDamage,
@@ -205,16 +150,12 @@ public enum ModGames {
             int hoeDamage,
             float hoeSpeed
     ) {
+        this.hasGames = hasGames;
         this.hasSword = hasSword;
         this.hasPickaxe = hasPickaxe;
         this.hasAxe = hasAxe;
         this.hasShovel = hasShovel;
         this.hasHoe = hasHoe;
-        this.hasBlock = hasBlock;
-        this.hasDeepOre = hasDeepOre;
-        this.hasOre = hasOre;
-        this.hasGames = hasGames;
-
         this.swordDamage = swordDamage;
         this.swordSpeed = swordSpeed;
         this.pickaxeDamage = pickaxeDamage;
@@ -225,6 +166,10 @@ public enum ModGames {
         this.shovelSpeed = shovelSpeed;
         this.hoeDamage = hoeDamage;
         this.hoeSpeed = hoeSpeed;
+    }
+
+    public boolean hasGames() {
+        return hasGames;
     }
 
     public boolean hasSword() {
@@ -245,22 +190,6 @@ public enum ModGames {
 
     public boolean hasHoe() {
         return hasHoe;
-    }
-
-    public boolean hasOre() {
-        return hasOre;
-    }
-
-    public boolean hasDeepOre() {
-        return hasDeepOre;
-    }
-
-    public boolean hasBlock() {
-        return hasBlock;
-    }
-
-    public boolean hasGames() {
-        return hasGames;
     }
 
     public int getSwordDamage() {

@@ -8,8 +8,7 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import org.mod.ultimate_tech.Ultimate_tech;
-import org.mod.ultimate_tech.block.*;
-import org.mod.ultimate_tech.block.custom.ModBlocks;
+import org.mod.ultimate_tech.block.ore.*;
 import org.mod.ultimate_tech.util.ModTags;
 
 import java.util.concurrent.CompletableFuture;
