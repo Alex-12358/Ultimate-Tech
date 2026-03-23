@@ -1,0 +1,117 @@
+package org.mod.ultimate_tech.client.gui;
+
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
+import org.jetbrains.annotations.NotNull;
+import org.mod.ultimate_tech.Ultimate_tech;
+import org.mod.ultimate_tech.common.block.ElevatorBlock;
+import org.mod.ultimate_tech.common.network.NetworkHandler;
+import org.mod.ultimate_tech.common.network.client.RemoveCamoPacket;
+import org.mod.ultimate_tech.common.network.client.SetArrowPacket;
+import org.mod.ultimate_tech.common.network.client.SetDirectionalPacket;
+import org.mod.ultimate_tech.common.tile.ElevatorContainer;
+import org.mod.ultimate_tech.common.tile.ElevatorTileEntity;
+
+import javax.annotation.Nonnull;
+import java.awt.*;
+
+import static org.mod.ultimate_tech.common.block.ElevatorBlock.DIRECTIONAL;
+import static org.mod.ultimate_tech.common.block.ElevatorBlock.SHOW_ARROW;
+
+public class ElevatorScreen extends AbstractContainerScreen<ElevatorContainer> {
+
+
+    private final ResourceLocation GUI_TEXTURE = new ResourceLocation(Ultimate_tech.MOD_ID, "textures/gui/elevator_gui.png");
+    private final ElevatorTileEntity tile;
+    private final Direction playerFacing;
+
+    private FunctionalCheckbox dirButton;
+    private FunctionalCheckbox hideArrowButton;
+    private Button resetCamoButton;
+    private FacingControllerWrapper facingController;
+
+    public ElevatorScreen(ElevatorContainer container, Inventory inv, Component titleIn) {
+        super(container, inv, titleIn);
+        imageWidth = 200;
+        imageHeight = 100;
+
+        tile = container.getTile();
+        playerFacing = container.getPlayerFacing();
+    }
+
+    @Override
+    public void init() {
+        super.init();
+
+        // Toggle directional button
+        Component dirLang = Component.translatable("screen.ultimate_tech.elevator.directional");
+        dirButton = new FunctionalCheckbox(leftPos + 8, topPos + 25, 20, 20, dirLang, tile.getBlockState().getValue(DIRECTIONAL), value ->
+                NetworkHandler.INSTANCE.sendToServer(new SetDirectionalPacket(value, tile.getBlockPos())));
+        addRenderableWidget(dirButton);
+
+        // Toggle arrow button
+        Component arrowLang = Component.translatable("screen.ultimate_tech.elevator.hide_arrow");
+        hideArrowButton = new FunctionalCheckbox(leftPos + 8, topPos + 50, 20, 20, arrowLang, !tile.getBlockState().getValue(SHOW_ARROW),
+                value -> NetworkHandler.INSTANCE.sendToServer(new SetArrowPacket(!value, tile.getBlockPos())));
+        hideArrowButton.visible = tile.getBlockState().getValue(DIRECTIONAL);
+        addRenderableWidget(hideArrowButton);
+
+        // Reset camouflage button
+        Component resetCamoLang = Component.translatable("screen.ultimate_tech.elevator.reset_camo");
+        resetCamoButton = Button.builder(resetCamoLang, but -> NetworkHandler.INSTANCE.sendToServer(new RemoveCamoPacket(tile.getBlockPos()))).pos(leftPos + 8, topPos + 75).size(110, 20).build();
+//        resetCamoButton = new Button(leftPos + 8, topPos + 75, 110, 20, resetCamoLang,
+//                button -> NetworkHandler.INSTANCE.sendToServer(new RemoveCamoPacket(tile.getBlockPos()))
+//        );
+        addRenderableWidget(resetCamoButton);
+
+        // Directional controller
+        facingController = new FacingControllerWrapper(leftPos + 120, topPos + 20, tile.getBlockPos(), playerFacing);
+        facingController.getButtons().forEach(this::addRenderableWidget);
+        facingController.getButtons().forEach(button -> button.visible = tile.getBlockState().getValue(DIRECTIONAL));
+
+        resetCamoButton.active = tile.getHeldState() != null;
+    }
+
+    @Override
+    public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+        renderBackground(guiGraphics);
+        super.render(guiGraphics, mouseX, mouseY, partialTicks);
+//        renderTooltip(guiGraphics, mouseX, mouseY);
+    }
+
+    @Override
+    public void containerTick() {
+        super.containerTick();
+
+        dirButton.selected = tile.getBlockState().getValue(ElevatorBlock.DIRECTIONAL);
+
+        facingController.getButtons().forEach(button -> {
+            button.visible = tile.getBlockState().getValue(DIRECTIONAL);
+            button.active = tile.getBlockState().getValue(ElevatorBlock.FACING) != button.direction;
+        });
+
+        hideArrowButton.visible = tile.getBlockState().getValue(DIRECTIONAL);
+        hideArrowButton.selected = !tile.getBlockState().getValue(SHOW_ARROW);
+
+        resetCamoButton.active = tile.getHeldState() != null;
+    }
+
+    @Override
+    protected void renderBg(@NotNull GuiGraphics guiGraphics, float v, int mouseX, int mouseY) {
+//        RenderSystem.setShaderTexture(0, GUI_TEXTURE);
+
+        int relX = (this.width - this.imageWidth) / 2;
+        int relY = (this.height - this.imageHeight) / 2;
+        guiGraphics.blit(GUI_TEXTURE, relX, relY, 0, 0, this.imageWidth, this.imageHeight);
+    }
+
+    @Override
+    protected void renderLabels(@Nonnull GuiGraphics guiGraphics, int mouseX, int mouseY) {
+        guiGraphics.drawString(font, title, 8, 8, 14737632);
+    }
+}

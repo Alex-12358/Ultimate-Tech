@@ -13,12 +13,19 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.mod.ultimate_tech.common.block.ore.*;
-import org.mod.ultimate_tech.common.item.custom_item.*;
-import org.mod.ultimate_tech.common.item.tool.*;
-import org.mod.ultimate_tech.common.block.custom.ModBlocks;
+import org.mod.ultimate_tech.client.ui.ModCreativeTabBlocks;
+import org.mod.ultimate_tech.client.ui.ModCreativeTabItems;
+import org.mod.ultimate_tech.client.ui.ModCreativeTabTools;
+import org.mod.ultimate_tech.common.init.Registry;
+import org.mod.ultimate_tech.common.network.NetworkHandler;
+import org.mod.ultimate_tech.core.registry.block.custom.ModCustomBlocks;
+import org.mod.ultimate_tech.core.registry.ModBlockUtils;
+import org.mod.ultimate_tech.core.registry.ModItemsUtils;
+import org.mod.ultimate_tech.core.registry.block.generator.*;
+import org.mod.ultimate_tech.core.registry.item.material.*;
+import org.mod.ultimate_tech.core.registry.item.tool.*;
 import org.mod.ultimate_tech.integration.botarium.ModBlockEntities;
-import org.mod.ultimate_tech.client.ui.ModCreativeModTabs;
+import org.mod.ultimate_tech.client.ui.ModCreativeTabs;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -32,7 +39,7 @@ public class Ultimate_tech {
 
     public Ultimate_tech() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModBlocks.init();
+        ModCustomBlocks.init();
         //item
         ModItemsRod.generate();
         ModItemsIngot.generate();
@@ -58,19 +65,25 @@ public class Ultimate_tech {
         ModBlockEntities.register(modEventBus);
         ModBlockUtils.register(modEventBus);
         //creative
-        ModCreativeModTabs.register(modEventBus);
+        ModCreativeTabs.register(modEventBus);
+        ModCreativeTabBlocks.register(modEventBus);
+        ModCreativeTabTools.register(modEventBus);
+        ModCreativeTabItems.register(modEventBus);
 
-
-        modEventBus.addListener(this::commonSetup);
-
+        modEventBus.addListener(Ultimate_tech::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
-
         modEventBus.addListener(this::addCreative);
-
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+
+        Registry.init();
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, org.mod.ultimate_tech.common.init.ModConfig.SPEC);
+
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    @SubscribeEvent
+    public static void commonSetup(final FMLCommonSetupEvent event) {
+        NetworkHandler.init();
     }
 
     // Add the example block item to the building blocks tab

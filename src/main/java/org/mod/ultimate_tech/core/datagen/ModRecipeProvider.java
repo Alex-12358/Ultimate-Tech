@@ -8,10 +8,9 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.mod.ultimate_tech.Ultimate_tech;
-import org.mod.ultimate_tech.block.ore.*;
-import org.mod.ultimate_tech.common.block.ore.*;
-import org.mod.ultimate_tech.common.item.custom_item.ModItemsIngot;
-import org.mod.ultimate_tech.common.item.custom_item.ModItemsRaw;
+import org.mod.ultimate_tech.core.registry.block.generator.*;
+import org.mod.ultimate_tech.core.registry.item.material.ModItemsIngot;
+import org.mod.ultimate_tech.core.registry.item.material.ModItemsRaw;
 
 import java.util.List;
 import java.util.function.Consumer;

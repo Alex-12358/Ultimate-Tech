@@ -8,8 +8,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import org.mod.ultimate_tech.Ultimate_tech;
-import org.mod.ultimate_tech.common.item.custom_item.*;
-import org.mod.ultimate_tech.item.custom_item.*;
+import org.mod.ultimate_tech.core.registry.item.material.*;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {

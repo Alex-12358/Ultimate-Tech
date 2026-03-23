@@ -6,7 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.mod.ultimate_tech.Ultimate_tech;
-import org.mod.ultimate_tech.common.block.custom.ModBlocks;
+import org.mod.ultimate_tech.core.registry.block.custom.ModCustomBlocks;
 
 
 public class ModBlockEntities {
@@ -18,7 +18,7 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("battery", () ->
                     BlockEntityType.Builder.of(
                             BatteryBlockEntity::new,
-                            ModBlocks.BATTERY.get()
+                            ModCustomBlocks.BATTERY.get()
                     ).build(null)
             );
 

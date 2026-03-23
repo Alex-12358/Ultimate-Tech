@@ -8,9 +8,8 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import org.mod.ultimate_tech.Ultimate_tech;
-import org.mod.ultimate_tech.block.ore.*;
-import org.mod.ultimate_tech.common.block.ore.*;
-import org.mod.ultimate_tech.core.util.ModTags;
+import org.mod.ultimate_tech.core.registry.block.generator.*;
+import org.mod.ultimate_tech.core.tags.ModTags;
 
 import java.util.concurrent.CompletableFuture;
 
