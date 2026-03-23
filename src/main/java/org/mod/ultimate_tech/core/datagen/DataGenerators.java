@@ -8,6 +8,13 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.mod.ultimate_tech.Ultimate_tech;
+import org.mod.ultimate_tech.core.datagen.providers.lang.ModEnglishLangProvider;
+import org.mod.ultimate_tech.core.datagen.providers.lang.ModRussianLangProvider;
+import org.mod.ultimate_tech.core.datagen.providers.models.ModBlockStateProvider;
+import org.mod.ultimate_tech.core.datagen.providers.models.ModItemModelProvider;
+import org.mod.ultimate_tech.core.datagen.providers.recipe.ModRecipeProvider;
+import org.mod.ultimate_tech.core.datagen.providers.tags.ModBlockTagGenerator;
+import org.mod.ultimate_tech.core.datagen.providers.tags.ModItemTagGenerator;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -21,15 +28,53 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        gen.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
-        gen.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
-
-        gen.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
-        gen.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
-
-        ModBlockTagGenerator blockTagGenerator = gen.addProvider(event.includeServer(),
-                new ModBlockTagGenerator(packOutput, lookupProvider, existingFileHelper));
-        gen.addProvider(event.includeServer(), new ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
+        // Генерация клиентских данных
+        if (event.includeClient()) {
+            addClientProviders(gen, packOutput, existingFileHelper);
+        }
+        // Генерация серверных данных
+        if (event.includeServer()) {
+            addServerProviders(gen, packOutput, lookupProvider, existingFileHelper);
+        }
     }
 
+    private static void addClientProviders(DataGenerator gen, PackOutput packOutput,
+                                           ExistingFileHelper existingFileHelper) {
+        gen.addProvider(
+                true,
+                new ModBlockStateProvider(packOutput, existingFileHelper)
+        );
+        gen.addProvider(
+                true,
+                new ModItemModelProvider(packOutput, existingFileHelper)
+        );
+
+        gen.addProvider(
+                true,
+                new ModEnglishLangProvider(packOutput)
+        );
+        gen.addProvider(
+                true,
+                new ModRussianLangProvider(packOutput)
+        );
+    }
+
+
+    private static void addServerProviders(DataGenerator gen, PackOutput packOutput,
+                                           CompletableFuture<HolderLookup.Provider> lookupProvider,
+                                           ExistingFileHelper existingFileHelper) {
+        gen.addProvider(
+                true,
+                new ModRecipeProvider(packOutput));
+        gen.addProvider(
+                true,
+                ModLootTableProvider.create(packOutput));
+
+        ModBlockTagGenerator blockTagGenerator = gen.addProvider(true,
+                new ModBlockTagGenerator(packOutput, lookupProvider, existingFileHelper));
+
+        gen.addProvider(false,
+                new ModItemTagGenerator(packOutput, lookupProvider,
+                        blockTagGenerator.contentsGetter(), existingFileHelper));
+    }
 }

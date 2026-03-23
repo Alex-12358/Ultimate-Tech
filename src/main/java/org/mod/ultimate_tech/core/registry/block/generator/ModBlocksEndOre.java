@@ -16,7 +16,7 @@ public class ModBlocksEndOre {
     public static void generate() {
         for (ModMaterial material : ModMaterial.values()) {
             if (!material.hasEndOre()) continue;
-            String name = "end_stone_" + material.getName() + "_ore";
+            String name = "end_" + material.getName() + "_ore";
             ORES.put(
                     material,
                     simpleEndOre(name)

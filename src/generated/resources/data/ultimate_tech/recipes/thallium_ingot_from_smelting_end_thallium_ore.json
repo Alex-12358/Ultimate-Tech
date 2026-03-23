@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "thallium",
+  "ingredient": {
+    "item": "ultimate_tech:end_thallium_ore"
+  },
+  "result": "ultimate_tech:thallium_ingot"
+}

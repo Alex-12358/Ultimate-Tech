@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "americium",
+  "ingredient": {
+    "item": "ultimate_tech:end_americium_ore"
+  },
+  "result": "ultimate_tech:americium_ingot"
+}

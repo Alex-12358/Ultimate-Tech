@@ -1,5 +1,6 @@
 package org.mod.ultimate_tech.common.init;
 
+import io.netty.channel.ChannelFuture;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -13,10 +14,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.mod.ultimate_tech.Config;
 import org.mod.ultimate_tech.Ultimate_tech;
 import org.mod.ultimate_tech.common.block.ElevatorBlock;
 import org.mod.ultimate_tech.common.tile.ElevatorContainer;
@@ -80,7 +83,7 @@ public class Registry {
             () -> CreativeModeTab.builder()
                     .icon(() -> ELEVATOR_ITEMS.get(DyeColor.WHITE).get().getDefaultInstance())
                     .displayItems((params, output) -> ELEVATOR_ITEMS.values().forEach(item -> output.accept(item.get())))
-                    .title(Component.translatable("itemGroup.elevators_tab"))
+                    .title(Component.translatable("creativetab.ultimate_tech.elevator"))
                     .build()
     );
 
@@ -95,10 +98,11 @@ public class Registry {
     }
 
     // TODO: Config GUI
-    /*@SubscribeEvent
+    /* @SubscribeEvent
     public static void configChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
         if (event.getModID().equals(Ultimate_tech.MOD_ID)) {
+            ChannelFuture ConfigManager;
             ConfigManager.sync(Ultimate_tech.MOD_ID, Config.Type.INSTANCE);
         }
-    }*/
+    } */
 }

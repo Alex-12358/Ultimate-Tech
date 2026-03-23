@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "palladium",
+  "ingredient": {
+    "item": "ultimate_tech:end_palladium_ore"
+  },
+  "result": "ultimate_tech:palladium_ingot"
+}
