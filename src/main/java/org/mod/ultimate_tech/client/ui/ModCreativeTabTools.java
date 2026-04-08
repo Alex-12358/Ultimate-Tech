@@ -27,7 +27,7 @@ public class ModCreativeTabTools {
     public static final RegistryObject<CreativeModeTab> CUSTOM_TAB =
             CREATIVE_MODE_TABS.register("custom_tab", () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(Items.NETHER_STAR))
-                    .title(Component.translatable("creativetab.ultimate_tech.all"))
+                    .title(Component.translatable("creativetab.ultimate_tech.tools"))
                     .displayItems((params, output) -> {
 
                         output.accept(ModCustomBlocks.BATTERY.get());

@@ -32,7 +32,7 @@ public class TeleportHandler {
                 if (getPlayerExperienceProgress(player) - xpCost >= 0 || player.experienceLevel > 0) {
                     player.giveExperiencePoints(-xpCost);
                 } else {
-                    player.displayClientMessage(Component.translatable("elevatorid.message.missing_xp").withStyle(ChatFormatting.RED), true);
+                    player.displayClientMessage(Component.translatable("ultimate_tech.message.missing_xp").withStyle(ChatFormatting.RED), true);
                     return;
                 }
             }

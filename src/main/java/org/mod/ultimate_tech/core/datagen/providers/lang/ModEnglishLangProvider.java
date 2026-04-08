@@ -24,6 +24,103 @@ public class ModEnglishLangProvider extends ModLangProvider {
         addCreativeTab("raw_blocks", "Raw Blocks");
         addCreativeTab("raw_items", "Raw Materials");
         addCreativeTab("elevator", "Elevators");
+        addCreativeTab("fluid", "Fluid");
+        addCreativeTab("tools", "Tools");
+
+        addScreen("elevator", "Elevator Options");
+        addScreen("elevator.directional", "Directional");
+        addScreen("elevator.directional_north", "N");
+        addScreen("elevator.directional_east", "E");
+        addScreen("elevator.directional_south", "S");
+        addScreen("elevator.directional_west", "W");
+        addScreen("elevator.hide_arrow", "Hide arrow");
+        addScreen("elevator.reset_camo", "Remove camouflage");
+
+        addItem("liquid_redstone_bucket", "Bucket of liquid redstone");
+        addItem("liquid_сrude_oil_bucket", "Crude Oil");
+
+        addEmi("category", "ores", "Ores");
+        addEmi("category", "ingots", "Ingots");
+        addEmi("category", "tools", "Tools");
+        addEmi("category", "fluids", "Fluids");
+
+        addItem("topaz_ingot", "Topaz");
+        addItem("amethyst_ingot", "Amethyst");
+        addItem("spinel_ingot", "Spinel");
+        addItem("opal_ingot", "Opal");
+        addItem("ruby_ingot", "Ruby");
+        addItem("sapphire_ingot", "Sapphire");
+        addItem("zircon_ingot", "Zircon");
+        addItem("garnet_ingot", "Garnet");
+        addItem("aquamarine_ingot", "Aquamarine");
+        addItem("jade_ingot", "Jade");
+        addItem("malachite_ingot", "Malachite");
+        addItem("morganite_ingot", "Morganite");
+
+        addItem("topaz_sword", "Topaz sword");
+        addItem("amethyst_sword", "Amethyst sword");
+        addItem("spinel_sword", "Spinel sword");
+        addItem("opal_sword", "Opal sword");
+        addItem("ruby_sword", "Ruby sword");
+        addItem("sapphire_sword", "Sapphire sword");
+        addItem("zircon_sword", "Zircon sword");
+        addItem("garnet_sword", "Garnet sword");
+        addItem("aquamarine_sword", "Aquamarine sword");
+        addItem("jade_sword", "Jade sword");
+        addItem("malachite_sword", "Malachite sword");
+        addItem("morganite_sword", "Morganite sword");
+
+        addItem("topaz_pickaxe", "Topaz pickaxe");
+        addItem("amethyst_pickaxe", "Amethyst pickaxe");
+        addItem("spinel_pickaxe", "Spinel pickaxe");
+        addItem("opal_pickaxe", "Opal pickaxe");
+        addItem("ruby_pickaxe", "Ruby pickaxe");
+        addItem("sapphire_pickaxe", "Sapphire pickaxe");
+        addItem("zircon_pickaxe", "Zircon pickaxe");
+        addItem("garnet_pickaxe", "Garnet pickaxe");
+        addItem("aquamarine_pickaxe", "Aquamarine pickaxe");
+        addItem("jade_pickaxe", "Jade pickaxe");
+        addItem("malachite_pickaxe", "Malachite pickaxe");
+        addItem("morganite_pickaxe", "Morganite pickaxe");
+
+        addItem("topaz_axe", "Topaz axe");
+        addItem("amethyst_axe", "Amethyst axe");
+        addItem("spinel_axe", "Spinel axe");
+        addItem("opal_axe", "Opal axe");
+        addItem("ruby_axe", "Ruby axe");
+        addItem("sapphire_axe", "Sapphire axe");
+        addItem("zircon_axe", "Zircon axe");
+        addItem("garnet_axe", "Garnet axe");
+        addItem("aquamarine_axe", "Aquamarine axe");
+        addItem("jade_axe", "Jade axe");
+        addItem("malachite_axe", "Malachite axe");
+        addItem("morganite_axe", "Morganite axe");
+
+        addItem("topaz_shovel", "Topaz shovel");
+        addItem("amethyst_shovel", "Amethyst shovel");
+        addItem("spinel_shovel", "Spinel shovel");
+        addItem("opal_shovel", "Opal shovel");
+        addItem("ruby_shovel", "Ruby shovel");
+        addItem("sapphire_shovel", "Sapphire shovel");
+        addItem("zircon_shovel", "Zircon shovel");
+        addItem("garnet_shovel", "Garnet shovel");
+        addItem("aquamarine_shovel", "Aquamarine shovel");
+        addItem("jade_shovel", "Jade shovel");
+        addItem("malachite_shovel", "Malachite shovel");
+        addItem("morganite_shovel", "Morganite shovel");
+
+        addItem("topaz_hoe", "Topaz hoe");
+        addItem("amethyst_hoe", "Amethyst hoe");
+        addItem("spinel_hoe", "Spinel hoe");
+        addItem("opal_hoe", "Opal hoe");
+        addItem("ruby_hoe", "Ruby hoe");
+        addItem("sapphire_hoe", "Sapphire hoe");
+        addItem("zircon_hoe", "Zircon hoe");
+        addItem("garnet_hoe", "Garnet hoe");
+        addItem("aquamarine_hoe", "Aquamarine hoe");
+        addItem("jade_hoe", "Jade hoe");
+        addItem("malachite_hoe", "Malachite hoe");
+        addItem("morganite_hoe", "Morganite hoe");
 
         addItem("diamond_rod", "Diamond Rod");
         addItem("iron_rod", "Iron Rod");
@@ -322,17 +419,13 @@ public class ModEnglishLangProvider extends ModLangProvider {
         addItem("platinum_ingot", "Platinum Ingot");
         addItem("polonium_ingot", "Polonium Ingot");
         addItem("quartz_ingot", "Quartz Ingot");
-        addItem("ruby_ingot", "Ruby Ingot");
-        addItem("sapphire_ingot", "Sapphire Ingot");
         addItem("silver_ingot", "Silver Ingot");
-        addItem("spinel_ingot", "Spinel Ingot");
         addItem("strontium_ingot", "Strontium Ingot");
         addItem("sulfur_ingot", "Sulfur Ingot");
         addItem("tantalum_ingot", "Tantalum Ingot");
         addItem("thorium_ingot", "Thorium Ingot");
         addItem("tin_ingot", "Tin Ingot");
         addItem("titanium_ingot", "Titanium Ingot");
-        addItem("topaz_ingot", "Topaz Ingot");
         addItem("vanadium_ingot", "Vanadium Ingot");
         addItem("wolfram_ingot", "Wolfram Ingot");
         addItem("yttrium_ingot", "Yttrium Ingot");

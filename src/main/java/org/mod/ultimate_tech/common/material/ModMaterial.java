@@ -35,11 +35,34 @@ public enum ModMaterial {
         false, false, true, 
         true, false, true, 
         true, false, false),
+
     // MOD MATERIALS
-    ALUMINIUM(true, false, false, 
-        true, true, true, 
-        true, true, true, 
-        true, true, true),
+    /* BRONZE(true, false, false,
+            true, false, false,
+            false, false, false,
+            true, true, true), // Медь+олово (Бронза)
+    BRASS(true, false, false,
+            true, false, false,
+            false, false, false,
+            true, true, true), // Медь+цинк (Латунь)
+    STEEL(true, false, false,
+            true, false, false,
+            false, false, false,
+            true, true, true), // Железо + Углерод (кокс/уголь) + иногда манганец (Сталь)
+    ELECTRUM(true, false, false,
+            true, false, false,
+            false, false, false,
+            true, true, true), // Золото + Серебро (Электрум)
+    INVAR(true, false, false,
+            true, false, false,
+            false, false, false,
+            true, true, true), // Железо + Никель (Инвар) */
+
+
+    ALUMINIUM(true, false, false,
+            true, true, true,
+            true, true, true,
+            true, true, true),
     AMERICIUM(true, false, false, 
         true, true, true, 
         true, true, true, 
@@ -202,74 +225,74 @@ public enum ModMaterial {
         true, true, true, true, 
         true, true, true, 
         true, true, true),
-        RUBY(
-                true, false, false,
+    RUBY(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false
         ),
-        SAPPHIRE(
-                true, false, false,
+    SAPPHIRE(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false
         ),
-        TOPAZ(
-                true, false, false,
+    TOPAZ(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false
         ),
-        AMETHYST(
-                true, false, false,
+    AMETHYST(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false
         ),
-        GARNET(
-                true, false, false,
+    GARNET(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false
         ),
-        OPAL(
-                true, false, false,
+    OPAL(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false
         ),
-        JADE(
-                true, false, false,
+    JADE(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false
         ),
-        MALACHITE(
-                true, false, false,
+    MALACHITE(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false
         ),
-        AQUAMARINE(
-                true, false, false,
+    AQUAMARINE(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false
         ),
-        SPINEL(
-                true, false, false,
+    SPINEL(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false
         ),
-        ZIRCON(
-                true, false, false,
+    ZIRCON(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false
         ),
-        MORGANITE(
-                true, false, false,
+    MORGANITE(
+        true, false, false,
         true, true, false, 
         false, true, false,
         false, false, false

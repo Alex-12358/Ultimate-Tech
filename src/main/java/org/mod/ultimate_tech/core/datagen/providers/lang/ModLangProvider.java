@@ -15,6 +15,10 @@ public abstract class ModLangProvider extends LanguageProvider {
         this.modId = modid;
     }
 
+    protected void addEmi(String category, String name, String translate) {
+        add("emi."+ category + "." + modId + ".emi." + name, translate);
+    }
+
     // Метод для добавления творческой вкладки
     protected void addCreativeTab(String name, String translate) {
         add("creativetab." + modId + "." + name, translate);
@@ -28,6 +32,11 @@ public abstract class ModLangProvider extends LanguageProvider {
     // Метод для добавления блоков
     protected void addBlock(String name, String translate) {
         add("block." + modId + "." + name, translate);
+    }
+
+    // Метод для добавления блоков
+    protected void addScreen(String name, String translate) {
+        add("screen." + modId + "." + name, translate);
     }
 
     // Метод для добавления подсказок к предметам

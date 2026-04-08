@@ -11,6 +11,7 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
+import org.mod.ultimate_tech.common.material.ModMaterial;
 import org.mod.ultimate_tech.core.registry.ModBlockUtils;
 import org.mod.ultimate_tech.core.registry.block.generator.*;
 import org.mod.ultimate_tech.core.registry.item.material.ModItemsRaw;
@@ -61,24 +62,17 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         generateOreDrops(ModBlocksEndOre.ORES);
     }
 
-    private void generateOreDrops(Map<?, RegistryObject<Block>> ores) {
-
+    private void generateOreDrops(Map<ModMaterial, RegistryObject<Block>> ores) {
         ores.forEach((material, block) -> {
-
             if (ModItemsRaw.RAW_ITEMS.containsKey(material)) {
-
                 this.add(block.get(), b ->
                         createFortuneOreDrops(
                                 block.get(),
                                 ModItemsRaw.RAW_ITEMS.get(material).get()
                         ));
-
             } else {
-
                 dropSelf(block.get());
-
             }
-
         });
     }
 

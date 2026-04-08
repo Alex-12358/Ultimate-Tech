@@ -98,6 +98,8 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
         }
 
         server {
@@ -137,10 +139,11 @@ repositories {
 
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
-    // flatDir {
-    //     dir 'libs'
-    // }
-
+     flatDir {
+         dir 'libs'
+     }
+    mavenLocal()
+    mavenCentral()
     // Другие репозитории могут располагаться выше или ниже репозитория Modrinth. Нам не нужен приоритет :)
     exclusiveContent {
         forRepository {
@@ -173,6 +176,10 @@ repositories {
     maven {
         url "https://maven.resourcefulbees.com/repository/maven-public/"
     }
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
+    }
 }
 
 dependencies {
@@ -187,21 +194,12 @@ dependencies {
     implementation fg.deobf("maven.modrinth:fusion-connected-textures:${fusion_version}-forge-mc${minecraft_version}")
     implementation fg.deobf("earth.terrarium.botarium:botarium-forge-${minecraft_version}:${botarium_version}")
 
-    // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
-    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
-     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
-     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
-     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+    // EMI API and runtime
+    compileOnly fg.deobf("dev.emi:emi-forge:${emi_version}:api")
+    compileOnly fg.deobf("dev.emi:emi-forge:${emi_version}")
+    runtimeOnly fg.deobf("dev.emi:emi-forge:${emi_version}")
 
-    // Example mod dependency using a mod jar from ./libs with a flat dir repository
-    // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
-    // The group id is ignored when searching -- in this case, it is "blank"
-    // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
-
-    // For more info:
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+    // Annotation processor for Mixin
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
 }

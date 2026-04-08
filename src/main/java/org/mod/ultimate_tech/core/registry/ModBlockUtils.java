@@ -36,68 +36,66 @@ public class ModBlockUtils {
 
         return registered;
     }
-    // если нету крафтов
+    // Создание простого блока без таблицы лута
     public static RegistryObject<Block> simpleBlock(String name) {
+        return simpleBlock(name, Blocks.IRON_BLOCK);
+    }
 
+    // Создание простого блока с указанием базового блока
+    public static RegistryObject<Block> simpleBlock(String name, Block baseBlock) {
         return ModBlockUtils.registerBlock(
                 BLOCKS,
                 name,
-                () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK))
+                () -> new Block(BlockBehaviour.Properties.copy(baseBlock))
         );
-
     }
-    // Обычная руда
+
+    // Создание блока без таблицы лута
+    public static RegistryObject<Block> simpleBlockNoLoot(String name) {
+        return simpleBlockNoLoot(name, Blocks.IRON_BLOCK);
+    }
+
+    // Создание блока без таблицы лута с указанием базового блока
+    public static RegistryObject<Block> simpleBlockNoLoot(String name, Block baseBlock) {
+        return ModBlockUtils.registerBlock(
+                BLOCKS,
+                name,
+                () -> new Block(BlockBehaviour.Properties.copy(baseBlock).noLootTable())
+        );
+    }
+
+    // Создание руды обычного типа
     public static RegistryObject<Block> simpleOre(String name) {
-
-        return ModBlockUtils.registerBlock(
-                BLOCKS,
-                name,
-                () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
-                        .sound(SoundType.STONE))
-        );
-
+        return createOre(name, Blocks.STONE, SoundType.STONE);
     }
-    // Глубинная руда
+
+    // Создание руды в Deepslate
     public static RegistryObject<Block> simpleDeepslateOre(String name) {
-
-        return ModBlockUtils.registerBlock(
-                BLOCKS,
-                name,
-                () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
-                        .sound(SoundType.DEEPSLATE))
-        );
-
+        return createOre(name, Blocks.DEEPSLATE, SoundType.DEEPSLATE);
     }
-    // Незер руда
+
+    // Создание руды в Nether
     public static RegistryObject<Block> simpleNetherOre(String name) {
-
-        return ModBlockUtils.registerBlock(
-                BLOCKS,
-                name,
-                () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERRACK)
-                        .sound(SoundType.NETHERRACK))
-        );
-
+        return createOre(name, Blocks.NETHERRACK, SoundType.NETHERRACK);
     }
-    // Энд руда
+
+    // Создание руды в End
     public static RegistryObject<Block> simpleEndOre(String name) {
-
-        return ModBlockUtils.registerBlock(
-                BLOCKS,
-                name,
-                () -> new Block(BlockBehaviour.Properties.copy(Blocks.END_STONE)
-                        .sound(SoundType.STONE))
-        );
-
+        return createOre(name, Blocks.END_STONE, SoundType.STONE);
     }
-    // если нету крафтов
-    public static RegistryObject<Block> simpleBlockOff(String name) {
 
+    // Внутренний метод для создания руды с параметрами
+    private static RegistryObject<Block> createOre(String name, Block baseBlock, SoundType soundType) {
         return ModBlockUtils.registerBlock(
                 BLOCKS,
                 name,
-                () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noLootTable())
+                () -> new Block(BlockBehaviour.Properties.copy(baseBlock).sound(soundType))
         );
+    }
 
+    // Устаревший метод - используйте simpleBlockNoLoot вместо этого
+    @Deprecated
+    public static RegistryObject<Block> simpleBlockOff(String name) {
+        return simpleBlockNoLoot(name);
     }
 }

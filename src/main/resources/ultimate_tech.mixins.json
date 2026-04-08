@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "org.mod.ultimate_tech.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_17",
   "refmap": "ultimate_tech.refmap.json",
   "mixins": [
   ],

@@ -23,6 +23,103 @@ public class ModRussianLangProvider extends ModLangProvider{
         addCreativeTab("raw_blocks", "Блоки сырой руды");
         addCreativeTab("raw_items", "Сырая руда");
         addCreativeTab("elevator", "Elevators");
+        addCreativeTab("fluid", "Жидкости");
+        addCreativeTab("tools", "Инструменты");
+
+        addScreen("elevator", "Настройки лифта");
+        addScreen("elevator.directional", "Направление");
+        addScreen("elevator.directional_north", "N");
+        addScreen("elevator.directional_east", "E");
+        addScreen("elevator.directional_south", "S");
+        addScreen("elevator.directional_west", "W");
+        addScreen("elevator.hide_arrow", "Скрыть указатель");
+        addScreen("elevator.reset_camo", "Снять маскировку");
+
+        addItem("liquid_redstone_bucket", "Ведро жидкого редстоуна");
+        addItem("liquid_сrude_oil_bucket", "Ведро сырой нейти");
+
+        addEmi("category", "ores", "Руды");
+        addEmi("category", "ingots", "Слитки");
+        addEmi("category", "tools", "Инструменты");
+        addEmi("category", "fluids", "Жидкости");
+
+        addItem("topaz_ingot", "Топаз");
+        addItem("amethyst_ingot", "Аметист");
+        addItem("spinel_ingot", "Шпинель");
+        addItem("opal_ingot", "Опал");
+        addItem("ruby_ingot", "Рубин");
+        addItem("sapphire_ingot", "Сапфир");
+        addItem("zircon_ingot", "Циркон");
+        addItem("garnet_ingot", "Гранат");
+        addItem("aquamarine_ingot", "Аквамарин");
+        addItem("jade_ingot", "Нефрит");
+        addItem("malachite_ingot", "Малахит");
+        addItem("morganite_ingot", "Морганит");
+
+        addItem("topaz_sword", "Топазовый меч");
+        addItem("amethyst_sword", "Аметистовый меч");
+        addItem("spinel_sword", "Шпинелевый меч");
+        addItem("opal_sword", "Опаловый меч");
+        addItem("ruby_sword", "Рубиновый меч");
+        addItem("sapphire_sword", "Сапфировый меч");
+        addItem("zircon_sword", "Цирконовый меч");
+        addItem("garnet_sword", "Гранатовый меч");
+        addItem("aquamarine_sword", "Аквамариновый меч");
+        addItem("jade_sword", "Нефритовый меч");
+        addItem("malachite_sword", "Малахитовый меч");
+        addItem("morganite_sword", "Моргановый меч");
+
+        addItem("topaz_pickaxe", "Топазовая кирка");
+        addItem("amethyst_pickaxe", "Аметистовая кирка");
+        addItem("spinel_pickaxe", "Шпинелевая кирка");
+        addItem("opal_pickaxe", "Опаловая кирка");
+        addItem("ruby_pickaxe", "Рубиновая кирка");
+        addItem("sapphire_pickaxe", "Сапфировая кирка");
+        addItem("zircon_pickaxe", "Цирконовая кирка");
+        addItem("garnet_pickaxe", "Гранатовая кирка");
+        addItem("aquamarine_pickaxe", "Аквамариновая кирка");
+        addItem("jade_pickaxe", "Нефритовая кирка");
+        addItem("malachite_pickaxe", "Малахитовая кирка");
+        addItem("morganite_pickaxe", "Морганитовая кирка");
+
+        addItem("topaz_axe", "Топазовый топор");
+        addItem("amethyst_axe", "Аметистовый топор");
+        addItem("spinel_axe", "Шпинелевый топор");
+        addItem("opal_axe", "Опаловый топор");
+        addItem("ruby_axe", "Рубиновый топор");
+        addItem("sapphire_axe", "Сапфировый топор");
+        addItem("zircon_axe", "Цирконовый топор");
+        addItem("garnet_axe", "Гранатовый топор");
+        addItem("aquamarine_axe", "Аквамариновый топор");
+        addItem("jade_axe", "Нефритовый топор");
+        addItem("malachite_axe", "Малахитовый топор");
+        addItem("morganite_axe", "Моргановый топор");
+
+        addItem("topaz_shovel", "Топазовая лопата");
+        addItem("amethyst_shovel", "Аметистовая лопата");
+        addItem("spinel_shovel", "Шпинелевая лопата");
+        addItem("opal_shovel", "Опаловая лопата");
+        addItem("ruby_shovel", "Рубиновая лопата");
+        addItem("sapphire_shovel", "Сапфировая лопата");
+        addItem("zircon_shovel", "Цирконовая лопата");
+        addItem("garnet_shovel", "Гранатовая лопата");
+        addItem("aquamarine_shovel", "Аквамариновая лопата");
+        addItem("jade_shovel", "Нефритовая лопата");
+        addItem("malachite_shovel", "Малахитовая лопата");
+        addItem("morganite_shovel", "Морганитовая лопата");
+
+        addItem("topaz_hoe", "Топазовая мотыга");
+        addItem("amethyst_hoe", "Аметистовая мотыга");
+        addItem("spinel_hoe", "Шпинелевая мотыга");
+        addItem("opal_hoe", "Опаловая мотыга");
+        addItem("ruby_hoe", "Рубиновая мотыга");
+        addItem("sapphire_hoe", "Сапфировая мотыга");
+        addItem("zircon_hoe", "Цирконовая мотыга");
+        addItem("garnet_hoe", "Гранатовая мотыга");
+        addItem("aquamarine_hoe", "Аквамариновая мотыга");
+        addItem("jade_hoe", "Нефритовая мотыга");
+        addItem("malachite_hoe", "Малахитовая мотыга");
+        addItem("morganite_hoe", "Морганитовая мотыга");
 
         addItem("diamond_rod", "Алмазный стержень");
         addItem("iron_rod", "Железный стержень");
@@ -321,17 +418,13 @@ public class ModRussianLangProvider extends ModLangProvider{
         addItem("platinum_ingot", "Платиновый слиток");
         addItem("polonium_ingot", "Полониевый слиток");
         addItem("quartz_ingot", "Кварцевый слиток");
-        addItem("ruby_ingot", "Рубиновый слиток");
-        addItem("sapphire_ingot", "Сапфировый слиток");
         addItem("silver_ingot", "Серебряный слиток");
-        addItem("spinel_ingot", "Шпинелевый слиток");
         addItem("strontium_ingot", "Стронциевый слиток");
         addItem("sulfur_ingot", "Серный слиток");
         addItem("tantalum_ingot", "Танталовый слиток");
         addItem("thorium_ingot", "Ториевый слиток");
         addItem("tin_ingot", "Оловянный слиток");
         addItem("titanium_ingot", "Титановый слиток");
-        addItem("topaz_ingot", "Топазовый слиток");
         addItem("vanadium_ingot", "Ванадиевый слиток");
         addItem("wolfram_ingot", "Вольфрамовый слиток");
         addItem("yttrium_ingot", "Иттриевый слиток");

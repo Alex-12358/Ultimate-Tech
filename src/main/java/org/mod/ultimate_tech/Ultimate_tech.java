@@ -13,19 +13,14 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.mod.ultimate_tech.client.ui.ModCreativeTabBlocks;
-import org.mod.ultimate_tech.client.ui.ModCreativeTabItems;
-import org.mod.ultimate_tech.client.ui.ModCreativeTabTools;
+import org.mod.ultimate_tech.client.ui.*;
 import org.mod.ultimate_tech.common.init.Registry;
 import org.mod.ultimate_tech.common.network.NetworkHandler;
-import org.mod.ultimate_tech.core.registry.block.custom.ModCustomBlocks;
+import org.mod.ultimate_tech.core.registry.ModFluidUtils;
 import org.mod.ultimate_tech.core.registry.ModBlockUtils;
 import org.mod.ultimate_tech.core.registry.ModItemsUtils;
-import org.mod.ultimate_tech.core.registry.block.generator.*;
-import org.mod.ultimate_tech.core.registry.item.material.*;
-import org.mod.ultimate_tech.core.registry.item.tool.*;
+import org.mod.ultimate_tech.core.registry.RegistryInitializer;
 import org.mod.ultimate_tech.integration.botarium.ModBlockEntities;
-import org.mod.ultimate_tech.client.ui.ModCreativeTabs;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -39,32 +34,18 @@ public class Ultimate_tech {
 
     public Ultimate_tech() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModCustomBlocks.init();
-        //item
-        ModItemsRod.generate();
-        ModItemsIngot.generate();
-        ModItemsPlate.generate();
-        ModItemsDust.generate();
-        ModItemsNugget.generate();
-        ModItemsRaw.generate();
-        ModItemsUtils.register(modEventBus);
 
-        ModItemToolTiers.generate();
-        ModItemsToolAxe.generate();
-        ModItemsToolHoe.generate();
-        ModItemsToolShovel.generate();
-        ModItemsToolPickaxe.generate();
-        ModItemsToolSword.generate();
-        //block
-        ModBlocksOre.generate();
-        ModBlocksDeepslateOre.generate();
-        ModBlocksBlock.generate();
-        ModBlocksRaw.generate();
-        ModBlocksNetherOre.generate();
-        ModBlocksEndOre.generate();
-        ModBlockEntities.register(modEventBus);
+        // Инициализируем все компоненты через централизованный инициализатор
+        RegistryInitializer.initializeAll();
+
+        // Регистрируем все компоненты в событийной шине
+        ModFluidUtils.register(modEventBus);
+        ModItemsUtils.register(modEventBus);
         ModBlockUtils.register(modEventBus);
-        //creative
+        ModBlockEntities.register(modEventBus);
+
+        // Регистрируем вкладки творческого режима
+        ModCreativeTabFluid.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
         ModCreativeTabBlocks.register(modEventBus);
         ModCreativeTabTools.register(modEventBus);
@@ -74,7 +55,6 @@ public class Ultimate_tech {
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-
 
         Registry.init();
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, org.mod.ultimate_tech.common.init.ModConfig.SPEC);

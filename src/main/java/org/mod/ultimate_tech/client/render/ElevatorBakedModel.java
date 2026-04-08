@@ -66,7 +66,7 @@ public class ElevatorBakedModel extends BakedModelWrapper<BakedModel> {
         // Directional arrow
         if (renderType == RenderType.cutoutMipped() && side == null) {
             if (state.getValue(ElevatorBlock.DIRECTIONAL) && state.getValue(ElevatorBlock.SHOW_ARROW)) {
-                BakedModel arrowModel = dispatcher.getBlockModelShaper().getModelManager().getModel(new ResourceLocation("elevatorid", "arrow"));
+                BakedModel arrowModel = dispatcher.getBlockModelShaper().getModelManager().getModel(new ResourceLocation("ultimate_tech", "arrow"));
                 BlockModelRotation rot = BlockModelRotation.by(0, (int) state.getValue(ElevatorBlock.FACING).toYRot());
                 IQuadTransformer transformer = QuadTransformers.applying(rot.getRotation().blockCenterToCorner());
 
