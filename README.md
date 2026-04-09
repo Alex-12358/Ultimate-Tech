@@ -117,7 +117,7 @@ Ultimate Tech/
 
 #### 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/YOUR_USERNAME/Ultimate-Tech.git
+git clone https://github.com/Alex-12358/Ultimate-Tech.git
 cd "Ultimate Tech"
 ```
 
@@ -263,14 +263,14 @@ assets/ultimate_tech/textures/block/
 ### `gradle.properties`:
 ```properties
 minecraft_version=1.20.1
-forge_version=47.2.19
+forge_version=47.4.10
 loader_version_range=[0,)
 ```
 
 ### `build.gradle`:
 ```gradle
 minecraft {
-    version = "1.20.1-47.2.19"
+    version = "1.20.1-47.4.10"
 }
 ```
 
