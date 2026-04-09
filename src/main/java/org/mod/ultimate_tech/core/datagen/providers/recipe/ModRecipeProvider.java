@@ -7,10 +7,13 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Items;
 import org.mod.ultimate_tech.Ultimate_tech;
+import org.mod.ultimate_tech.common.init.Registry;
+import org.mod.ultimate_tech.common.material.ModMaterial;
 import org.mod.ultimate_tech.core.registry.block.generator.*;
-import org.mod.ultimate_tech.core.registry.item.material.ModItemsIngot;
-import org.mod.ultimate_tech.core.registry.item.material.ModItemsRaw;
+import org.mod.ultimate_tech.core.registry.item.material.*;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -23,71 +26,152 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
 
-        ModBlocksRaw.RAW_BLOCKS.forEach((material, block) -> {
-
-            if (!ModItemsRaw.RAW_ITEMS.containsKey(material)) return;
-            if (!ModItemsIngot.INGOTS.containsKey(material)) return;
-
-            ItemLike raw = ModItemsRaw.RAW_ITEMS.get(material).get();
-            ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
-            ItemLike rawBlock = block.get();
-
-            // RAW -> RAW_BLOCKS
-            ShapedRecipeBuilder.shaped(RecipeCategory.MISC, rawBlock)
-                    .pattern("RRR")
-                    .pattern("RRR")
-                    .pattern("RRR")
-                    .define('R', raw)
-                    .unlockedBy(getHasName(raw), has(raw))
-                    .save(pWriter);
-
-            // RAW_BLOCKS -> RAW
-            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, raw, 9)
-                    .requires(rawBlock)
-                    .unlockedBy(getHasName(rawBlock), has(rawBlock))
-                    .save(pWriter);
-
-            // RAW -> INGOT (SMELTING + BLASTING)
-            oreSmelting(pWriter, List.of(raw), RecipeCategory.MISC, ingot, 0.7f, 200, material.name().toLowerCase());
-            oreBlasting(pWriter, List.of(raw), RecipeCategory.MISC, ingot, 0.7f, 100, material.name().toLowerCase());
-        });
-
         // ORE -> INGOT
-        ModBlocksOre.ORES.forEach((material, block) -> {
-            if (!ModItemsIngot.INGOTS.containsKey(material)) return;
+        for (ModMaterial material : ModMaterial.values()) {
+            if (!material.hasOre() || !material.hasIngot()) continue;
 
-            ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
+            if (ModBlocksOre.ORES.containsKey(material) && ModItemsIngot.INGOTS.containsKey(material)) {
+                ItemLike ore = ModBlocksOre.ORES.get(material).get();
+                ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
 
-            oreSmelting(pWriter, List.of(block.get()), RecipeCategory.MISC, ingot, 0.7f, 200, material.name().toLowerCase());
-            oreBlasting(pWriter, List.of(block.get()), RecipeCategory.MISC, ingot, 0.7f, 100, material.name().toLowerCase());
-        });
+                oreSmelting(pWriter, List.of(ore), RecipeCategory.MISC, ingot, 0.7f, 200, material.name().toLowerCase());
+                oreBlasting(pWriter, List.of(ore), RecipeCategory.MISC, ingot, 0.7f, 100, material.name().toLowerCase());
+            }
+        }
 
-        ModBlocksDeepslateOre.ORES.forEach((material, block) -> {
-            if (!ModItemsIngot.INGOTS.containsKey(material)) return;
+        // DEEPSLATE ORE -> INGOT
+        for (ModMaterial material : ModMaterial.values()) {
+            if (!material.hasDeepOre() || !material.hasIngot()) continue;
 
-            ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
+            if (ModBlocksDeepslateOre.ORES.containsKey(material) && ModItemsIngot.INGOTS.containsKey(material)) {
+                ItemLike ore = ModBlocksDeepslateOre.ORES.get(material).get();
+                ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
 
-            oreSmelting(pWriter, List.of(block.get()), RecipeCategory.MISC, ingot, 0.7f, 200, material.name().toLowerCase());
-            oreBlasting(pWriter, List.of(block.get()), RecipeCategory.MISC, ingot, 0.7f, 100, material.name().toLowerCase());
-        });
+                oreSmelting(pWriter, List.of(ore), RecipeCategory.MISC, ingot, 0.7f, 200, material.name().toLowerCase());
+                oreBlasting(pWriter, List.of(ore), RecipeCategory.MISC, ingot, 0.7f, 100, material.name().toLowerCase());
+            }
+        }
 
-        ModBlocksNetherOre.ORES.forEach((material, block) -> {
-            if (!ModItemsIngot.INGOTS.containsKey(material)) return;
+        // NETHER ORE -> INGOT
+        for (ModMaterial material : ModMaterial.values()) {
+            if (!material.hasNetherOre() || !material.hasIngot()) continue;
 
-            ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
+            if (ModBlocksNetherOre.ORES.containsKey(material) && ModItemsIngot.INGOTS.containsKey(material)) {
+                ItemLike ore = ModBlocksNetherOre.ORES.get(material).get();
+                ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
 
-            oreSmelting(pWriter, List.of(block.get()), RecipeCategory.MISC, ingot, 0.7f, 200, material.name().toLowerCase());
-            oreBlasting(pWriter, List.of(block.get()), RecipeCategory.MISC, ingot, 0.7f, 100, material.name().toLowerCase());
-        });
+                oreSmelting(pWriter, List.of(ore), RecipeCategory.MISC, ingot, 0.7f, 200, material.name().toLowerCase());
+                oreBlasting(pWriter, List.of(ore), RecipeCategory.MISC, ingot, 0.7f, 100, material.name().toLowerCase());
+            }
+        }
 
-        ModBlocksEndOre.ORES.forEach((material, block) -> {
-            if (!ModItemsIngot.INGOTS.containsKey(material)) return;
+        // END ORE -> INGOT
+        for (ModMaterial material : ModMaterial.values()) {
+            if (!material.hasEndOre() || !material.hasIngot()) continue;
 
-            ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
+            if (ModBlocksEndOre.ORES.containsKey(material) && ModItemsIngot.INGOTS.containsKey(material)) {
+                ItemLike ore = ModBlocksEndOre.ORES.get(material).get();
+                ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
 
-            oreSmelting(pWriter, List.of(block.get()), RecipeCategory.MISC, ingot, 0.7f, 200, material.name().toLowerCase());
-            oreBlasting(pWriter, List.of(block.get()), RecipeCategory.MISC, ingot, 0.7f, 100, material.name().toLowerCase());
-        });
+                oreSmelting(pWriter, List.of(ore), RecipeCategory.MISC, ingot, 0.7f, 200, material.name().toLowerCase());
+                oreBlasting(pWriter, List.of(ore), RecipeCategory.MISC, ingot, 0.7f, 100, material.name().toLowerCase());
+            }
+        }
+
+        // RAW MATERIALS -> RAW_BLOCKS
+        for (ModMaterial material : ModMaterial.values()) {
+            if (!material.hasBlockRaw() || !material.hasItemRaw() || !material.hasIngot()) continue;
+
+            if (ModBlocksRaw.RAW_BLOCKS.containsKey(material) && ModItemsRaw.RAW_ITEMS.containsKey(material)) {
+                ItemLike raw = ModItemsRaw.RAW_ITEMS.get(material).get();
+                ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
+                ItemLike rawBlock = ModBlocksRaw.RAW_BLOCKS.get(material).get();
+
+                // RAW -> RAW_BLOCKS (9 raw items)
+                ShapedRecipeBuilder.shaped(RecipeCategory.MISC, rawBlock)
+                        .pattern("RRR")
+                        .pattern("RRR")
+                        .pattern("RRR")
+                        .define('R', raw)
+                        .unlockedBy(getHasName(raw), has(raw))
+                        .save(pWriter);
+
+                // RAW_BLOCKS -> RAW
+                ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, raw, 9)
+                        .requires(rawBlock)
+                        .unlockedBy(getHasName(rawBlock), has(rawBlock))
+                        .save(pWriter);
+
+                // RAW -> INGOT (SMELTING + BLASTING)
+                oreSmelting(pWriter, List.of(raw), RecipeCategory.MISC, ingot, 0.7f, 200, material.name().toLowerCase());
+                oreBlasting(pWriter, List.of(raw), RecipeCategory.MISC, ingot, 0.7f, 100, material.name().toLowerCase());
+            }
+        }
+
+        // INGOT BLOCK RECIPES (9 ingots -> block, block -> 9 ingots)
+        for (ModMaterial material : ModMaterial.values()) {
+            if (!material.hasBlock() || !material.hasIngot()) continue;
+
+            if (ModBlocksBlock.BLOCK.containsKey(material) && ModItemsIngot.INGOTS.containsKey(material)) {
+                ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
+                ItemLike ingotBlock = ModBlocksBlock.BLOCK.get(material).get();
+
+                // 9 ingots -> ingot block
+                ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ingotBlock)
+                        .pattern("III")
+                        .pattern("III")
+                        .pattern("III")
+                        .define('I', ingot)
+                        .unlockedBy(getHasName(ingot), has(ingot))
+                        .save(pWriter, Ultimate_tech.MOD_ID + ":storage_" + material.getName());
+
+                // ingot block -> 9 ingots
+                ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ingot, 9)
+                        .requires(ingotBlock)
+                        .unlockedBy(getHasName(ingotBlock), has(ingotBlock))
+                        .save(pWriter, Ultimate_tech.MOD_ID + ":" + material.getName() + "_from_storage");
+            }
+        }
+
+        // NUGGET RECIPES (9 nuggets -> ingot)
+        for (ModMaterial material : ModMaterial.values()) {
+            if (!material.hasNugget() || !material.hasIngot()) continue;
+
+            if (ModItemsNugget.NUGGETS.containsKey(material) && ModItemsIngot.INGOTS.containsKey(material)) {
+                ItemLike nugget = ModItemsNugget.NUGGETS.get(material).get();
+                ItemLike ingot = ModItemsIngot.INGOTS.get(material).get();
+
+                // 9 nuggets -> ingot
+                ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ingot)
+                        .pattern("NNN")
+                        .pattern("NNN")
+                        .pattern("NNN")
+                        .define('N', nugget)
+                        .unlockedBy(getHasName(nugget), has(nugget))
+                        .save(pWriter, Ultimate_tech.MOD_ID + ":" + material.getName() + "_from_nuggets");
+
+                // ingot -> 9 nuggets
+                ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, nugget, 9)
+                        .requires(ingot)
+                        .unlockedBy(getHasName(ingot), has(ingot))
+                        .save(pWriter, Ultimate_tech.MOD_ID + ":" + material.getName() + "_nuggets");
+            }
+        }
+
+        // ELEVATOR RECIPES - для каждого цвета
+        for (DyeColor color : DyeColor.values()) {
+            ItemLike elevatorBlock = Registry.ELEVATOR_BLOCKS.get(color).get();
+
+            // Основной рецепт лифта
+            ShapedRecipeBuilder.shaped(RecipeCategory.MISC, elevatorBlock)
+                    .pattern("WWW")
+                    .pattern("WEW")
+                    .pattern("WWW")
+                    .define('W', Items.WHITE_WOOL)  // Упрощено - только белая шерсть
+                    .define('E', Items.ENDER_PEARL)
+                    .unlockedBy("has_wool", has(Items.WHITE_WOOL))
+                    .save(pWriter);
+        }
     }
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");

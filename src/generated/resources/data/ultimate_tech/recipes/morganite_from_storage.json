@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ultimate_tech:morganite_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "ultimate_tech:morganite_ingot"
+  }
+}

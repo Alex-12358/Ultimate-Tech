@@ -9,28 +9,27 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.mod.ultimate_tech.Ultimate_tech;
-import org.mod.ultimate_tech.core.registry.block.custom.ModCustomBlocks;
-import org.mod.ultimate_tech.core.registry.fluid.ModFluids;
-import org.mod.ultimate_tech.core.registry.item.tool.*;
+import org.mod.ultimate_tech.core.registry.fluid.ModFluidsRegistry;
 
 public class ModCreativeTabFluid {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Ultimate_tech.MOD_ID);
 
-
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);
     }
-    // =========================
-    // CUSTOM
-    // =========================
 
-    public static final RegistryObject<CreativeModeTab> CUSTOM_TAB =
+    // ========================= FLUID TAB =========================
+    public static final RegistryObject<CreativeModeTab> FLUID_TAB =
             CREATIVE_MODE_TABS.register("fluid_tab", () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(Items.NETHER_STAR))
                     .title(Component.translatable("creativetab.ultimate_tech.fluid"))
                     .displayItems((params, output) -> {
-
-                        ModFluids.FLUID.values().forEach(fluid -> output.accept(fluid.bucket.get()));
+                        // Добавляем все ведра жидкостей из ModFluidsRegistry
+                        ModFluidsRegistry.FLUID_SETS.values().forEach(fluidSet -> 
+                            output.accept(fluidSet.bucket.get())
+                        );
                     }).build());
 }
+
+

@@ -30,7 +30,8 @@ public final class RegistryInitializer {
      * Инициализирует жидкости модификации.
      */
     private static void initializeFluids() {
-        ModFluids.init();
+        // Теперь жидкости инициализируются автоматически через ModFluidsRegistry
+        // static поля при загрузке класса
     }
 
     /**

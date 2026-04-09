@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "W": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "WEW",
+    "WWW"
+  ],
+  "result": {
+    "item": "ultimate_tech:elevator_pink"
+  },
+  "show_notification": true
+}

@@ -2,6 +2,7 @@ package org.mod.ultimate_tech.client;
 
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
@@ -14,9 +15,10 @@ import org.mod.ultimate_tech.common.block.ElevatorBlock;
 import org.mod.ultimate_tech.client.gui.ElevatorScreen;
 import org.mod.ultimate_tech.client.render.ColorCamoElevator;
 import org.mod.ultimate_tech.client.render.ElevatorBakedModel;
+import org.mod.ultimate_tech.client.render.ToolItemColor;
 import org.mod.ultimate_tech.common.init.Registry;
-import net.minecraftforge.common.MinecraftForge;
-import org.mod.ultimate_tech.integration.emi.EmiSidebarModTabsController;
+import org.mod.ultimate_tech.core.registry.item.tool.*;
+import org.mod.ultimate_tech.common.init.Registry;
 
 @Mod.EventBusSubscriber(modid = Ultimate_tech.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientRegistry {
@@ -25,8 +27,6 @@ public class ClientRegistry {
     public static void clientSetup(FMLClientSetupEvent event) {
         MenuScreens.register(Registry.ELEVATOR_CONTAINER.get(), ElevatorScreen::new);
         event.enqueueWork(() -> {
-            EmiSidebarModTabsController.bootstrap();
-            MinecraftForge.EVENT_BUS.register(EmiSidebarModTabsController.class);
         });
     }
 
@@ -36,6 +36,17 @@ public class ClientRegistry {
                 new ColorCamoElevator(),
                 Registry.ELEVATOR_BLOCKS.values().stream().map(RegistryObject::get).toArray(ElevatorBlock[]::new)
         );
+    }
+
+    @SubscribeEvent
+    public static void onItemColorHandlersRegistry(RegisterColorHandlersEvent.Item e) {
+        ToolItemColor toolColor = new ToolItemColor();
+        // Регистрируем все инструменты
+        e.register(toolColor, ModItemsToolSword.SWORDS.values().stream().map(RegistryObject::get).toArray(Item[]::new));
+        e.register(toolColor, ModItemsToolPickaxe.PICKAXES.values().stream().map(RegistryObject::get).toArray(Item[]::new));
+        e.register(toolColor, ModItemsToolAxe.AXES.values().stream().map(RegistryObject::get).toArray(Item[]::new));
+        e.register(toolColor, ModItemsToolShovel.SHOVELS.values().stream().map(RegistryObject::get).toArray(Item[]::new));
+        e.register(toolColor, ModItemsToolHoe.HOES.values().stream().map(RegistryObject::get).toArray(Item[]::new));
     }
 
 

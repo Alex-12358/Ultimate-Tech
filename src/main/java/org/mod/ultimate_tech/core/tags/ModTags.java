@@ -28,7 +28,9 @@ public class ModTags {
 
     public static class Items {
 
-//        public static final TagKey<Item> NEED_TOOL = tag("need_tool");
+        public static final TagKey<Item> ORES = tag("ores");
+        public static final TagKey<Item> INGOTS = tag("ingots");
+        public static final TagKey<Item> MATERIALS = tag("materials");
 
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(Ultimate_tech.MOD_ID, name));

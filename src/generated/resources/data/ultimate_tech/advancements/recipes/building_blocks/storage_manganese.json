@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_manganese_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultimate_tech:manganese_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultimate_tech:storage_manganese"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_manganese_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultimate_tech:storage_manganese"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -123,3 +123,8 @@ runs/
 run-data/logs/debug-2.log.gz
 /run-data
 /run-data/logs
+*.gz
+*.gz
+*.gz
+*.gz
+*.gz

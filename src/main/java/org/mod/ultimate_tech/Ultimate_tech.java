@@ -17,6 +17,8 @@ import org.mod.ultimate_tech.client.ui.*;
 import org.mod.ultimate_tech.common.init.Registry;
 import org.mod.ultimate_tech.common.network.NetworkHandler;
 import org.mod.ultimate_tech.core.registry.ModFluidUtils;
+import org.mod.ultimate_tech.core.registry.fluid.ModFluidsRegistry;
+import org.mod.ultimate_tech.core.registry.fluid.FluidTypesRegistry;
 import org.mod.ultimate_tech.core.registry.ModBlockUtils;
 import org.mod.ultimate_tech.core.registry.ModItemsUtils;
 import org.mod.ultimate_tech.core.registry.RegistryInitializer;
@@ -40,6 +42,8 @@ public class Ultimate_tech {
 
         // Регистрируем все компоненты в событийной шине
         ModFluidUtils.register(modEventBus);
+        FluidTypesRegistry.register(modEventBus);
+        ModFluidsRegistry.register(modEventBus);
         ModItemsUtils.register(modEventBus);
         ModBlockUtils.register(modEventBus);
         ModBlockEntities.register(modEventBus);

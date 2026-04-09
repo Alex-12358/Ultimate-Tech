@@ -2,11 +2,13 @@ package org.mod.ultimate_tech.core.datagen.providers.models;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import org.mod.ultimate_tech.Ultimate_tech;
+import org.mod.ultimate_tech.common.init.Registry;
 import org.mod.ultimate_tech.core.registry.block.generator.*;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -39,6 +41,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         // RAW BLOCKS
         ModBlocksRaw.RAW_BLOCKS.values().forEach(this::simpleBlock);
+
+        // ELEVATORS - Генерируем модели для всех цветов лифтов
+        for (DyeColor color : DyeColor.values()) {
+            Block elevatorBlock = Registry.ELEVATOR_BLOCKS.get(color).get();
+            simpleBlockWithItem(
+                    elevatorBlock,
+                    models().cubeAll(
+                            "elevator_" + color.getName(),
+                            new ResourceLocation(Ultimate_tech.MOD_ID, "block/elevator_" + color.getName())
+                    )
+            );
+        }
     }
 
     private void simpleBlock(RegistryObject<Block> block) {
