@@ -6,7 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import org.mod.ultimate_tech.common.material.ModGames;
 import org.mod.ultimate_tech.core.registry.item.tool.*;
 
-public class ToolItemColor implements ItemColor {
+public class ModToolItemColor implements ItemColor {
 
     @Override
     public int getColor(ItemStack stack, int tintIndex) {

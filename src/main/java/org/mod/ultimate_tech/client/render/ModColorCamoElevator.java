@@ -11,7 +11,7 @@ import org.mod.ultimate_tech.common.tile.ElevatorTileEntity;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class ColorCamoElevator implements BlockColor {
+public class ModColorCamoElevator implements BlockColor {
 
 
     @Override

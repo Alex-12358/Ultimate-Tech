@@ -27,7 +27,7 @@ import org.mod.ultimate_tech.common.init.Registry;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import static org.mod.ultimate_tech.client.render.ElevatorBakedModel.HELD_STATE;
+import static org.mod.ultimate_tech.client.render.ModElevatorBakedModel.HELD_STATE;
 import static org.mod.ultimate_tech.common.init.Registry.ELEVATOR_TILE_ENTITY;
 
 public class ElevatorTileEntity extends BlockEntity implements MenuProvider {

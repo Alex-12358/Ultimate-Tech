@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "README"
             }
+          },
+          {
+            "id": "de3a80f8bc03b4ee",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -78,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "3396b1a82a579e63",
@@ -180,8 +196,11 @@
       "bases:Создать новую базу": false
     }
   },
-  "active": "088f5d73bb3bf799",
+  "active": "de3a80f8bc03b4ee",
   "lastOpenFiles": [
+    "README.md~",
+    "test.md",
+    "README.md",
     "build/classes/java/main/org/mod/ultimate_tech/item/custom_item/ModGamesItem.class",
     "run/saves/Новый мир/level3651220468419479545.dat",
     "run/logs/debug-2.log.gz",
@@ -190,9 +209,6 @@
     "build/resources/main/data/ultimate_tech/loot_tables/blocks/ruby_block.json",
     "build/resources/main/data/ultimate_tech/loot_tables/blocks/garnet_ore.json",
     "build/resources/main/data/ultimate_tech/loot_tables/blocks/deepslate_morganite_ore.json",
-    "build/resources/main/data/ultimate_tech/loot_tables/blocks/amethyst_ore.json",
-    "build/resources/main/assets/ultimate_tech/models/item/garnet_ore.json",
-    "build/resources/main/assets/ultimate_tech/models/item/deepslate_jade_ore.json",
-    "README.md"
+    "build/resources/main/data/ultimate_tech/loot_tables/blocks/amethyst_ore.json"
   ]
 }

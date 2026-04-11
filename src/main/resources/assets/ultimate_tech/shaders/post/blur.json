@@ -1,0 +1,15 @@
+{
+  "targets": ["swap"],
+  "passes": [
+    {
+      "name": "ultimate_tech:blur_h",
+      "intarget": "minecraft:main",
+      "outtarget": "swap"
+    },
+    {
+      "name": "ultimate_tech:blur_v",
+      "intarget": "swap",
+      "outtarget": "minecraft:main"
+    }
+  ]
+}

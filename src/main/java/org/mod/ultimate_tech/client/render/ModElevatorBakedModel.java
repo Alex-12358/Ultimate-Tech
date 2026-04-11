@@ -25,11 +25,11 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElevatorBakedModel extends BakedModelWrapper<BakedModel> {
+public class ModElevatorBakedModel extends BakedModelWrapper<BakedModel> {
 
     public static final ModelProperty<BlockState> HELD_STATE = new ModelProperty<>();
 
-    public ElevatorBakedModel(BakedModel originalModel) {
+    public ModElevatorBakedModel(BakedModel originalModel) {
         super(originalModel);
     }
 

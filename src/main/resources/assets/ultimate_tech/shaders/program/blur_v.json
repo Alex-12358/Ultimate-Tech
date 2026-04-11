@@ -1,0 +1,11 @@
+{
+  "vertex": "ultimate_tech:shaders/program/blur.vsh",
+  "fragment": "ultimate_tech:shaders/program/blur_v.fsh",
+  "samplers": [
+    { "name": "DiffuseSampler" }
+  ],
+  "uniforms": [
+    { "name": "Radius", "type": "float", "count": 1, "values": [5.0] },
+    { "name": "TexelSize", "type": "vec2", "count": 2, "values": [1.0, 1.0] }
+  ]
+}

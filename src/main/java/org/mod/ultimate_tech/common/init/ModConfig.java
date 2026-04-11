@@ -16,6 +16,18 @@ public class ModConfig {
     public static final CommonGeneral GENERAL = new CommonGeneral(BUILDER);
     public static final ForgeConfigSpec SPEC = BUILDER.build();
 
+    public static final ForgeConfigSpec.DoubleValue BLUR_RADIUS;
+
+    static {
+        BUILDER.push("Blur Settings");
+
+        BLUR_RADIUS = BUILDER
+                .comment("Blur strength (1.0 - 20.0)")
+                .defineInRange("blurRadius", 5.0, 1.0, 20.0);
+
+        BUILDER.pop();
+    }
+
     public static class CommonGeneral {
         public final ForgeConfigSpec.BooleanValue sameColor;
         public final ForgeConfigSpec.BooleanValue precisionTarget;
