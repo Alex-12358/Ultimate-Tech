@@ -2,11 +2,7 @@
 
 [![Minecraft Version](https://img.shields.io/badge/Minecraft-1.20.1-green)](https://www.minecraft.net/)
 [![Forge Version](https://img.shields.io/badge/Forge-47.4.10-orange)](https://files.minecraftforge.net/)
-<<<<<<< Updated upstream
-[![Java](https://img.shields.io/badge/Java-17+-red)](https://www.java.com/)
-=======
 [![Java|68](https://img.shields.io/badge/Java-17+-red)](https://www.java.com/)
->>>>>>> Stashed changes
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
 ***Содержание***
@@ -87,32 +83,6 @@
 
 ```mermaid
 flowchart TB
-<<<<<<< Updated upstream
-    ENUM["📋 Enum<br/>ModMaterial<br/>ModFluid"]
-    
-    INIT["🔧 RegistryInitializer<br/>(Централизованная инициализация)"]
-    
-    UTILS["⚙️ Utils<br/>ModFluidUtils<br/>ModItemsUtils<br/>ModBlockUtils"]
-    
-    REGISTRY["📦 Registry<br/>ModFluidsRegistry<br/>ModItemsRegistry<br/>ModBlocksRegistry"]
-    
-    DEFER["🎯 DeferredRegister<br/>(Forge реестр)"]
-    
-    FINAL["✅ Ultimate Tech<br/>Полностью готово!"]
-    
-    ENUM --> INIT
-    INIT --> UTILS
-    UTILS --> REGISTRY
-    REGISTRY --> DEFER
-    DEFER --> FINAL
-    
-    style ENUM fill:#3498db,color:#fff,stroke:#2980b9,stroke-width:2px
-    style INIT fill:#e74c3c,color:#fff,stroke:#c0392b,stroke-width:2px
-    style UTILS fill:#f39c12,color:#fff,stroke:#d68910,stroke-width:2px
-    style REGISTRY fill:#9b59b6,color:#fff,stroke:#8e44ad,stroke-width:2px
-    style DEFER fill:#27ae60,color:#fff,stroke:#229954,stroke-width:2px
-    style FINAL fill:#16a085,color:#fff,stroke:#117a65,stroke-width:2px
-=======
   ENUM["📋 Enum<br/>ModMaterial<br/>ModFluid"]:::enum
   INIT["🔧 RegistryInitializer<br/>Централизованная инициализация"]:::init
   UTILS["⚙️ Utils<br/>ModFluidUtils<br/>ModItemsUtils<br/>ModBlockUtils"]:::utils
@@ -132,7 +102,7 @@ flowchart TB
   classDef registry fill:#3a2a5a,color:#d2b4de,stroke:#9b59b6,stroke-width:2px,r:8px
   classDef defer fill:#1e4a3a,color:#a3e4d7,stroke:#2ecc71,stroke-width:2px,r:8px
   classDef final fill:#5a4a1a,color:#f9e79f,stroke:#f1c40f,stroke-width:3px,r:10px
->>>>>>> Stashed changes
+
 ```
 
 ---
@@ -141,122 +111,6 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-<<<<<<< Updated upstream
-    ROOT["📁 Ultimate Tech"]
-    
-    ROOT --> SRC["📁 src/main"]
-    ROOT --> GRADLE["📄 build.gradle"]
-    
-    SRC --> JAVA["📁 java"]
-    SRC --> RES["📁 resources"]
-    
-    JAVA --> ORG["📁 org/mod/ultimate_tech/"]
-    
-    ORG --> CORE["📁 core/"]
-    ORG --> COMMON["📁 common/"]
-    ORG --> CLIENT["📁 client/"]
-    ORG --> INTEG["📁 integration/"]
-    ORG --> MIXIN["📁 mixin/"]
-    ORG --> MAIN["🔧 Ultimate_tech.java"]
-    
-    CORE --> REGISTRY["📁 registry/"]
-    REGISTRY --> INIT["RegistryInitializer.java"]
-    REGISTRY --> FLUID_R["📁 fluid/"]
-    REGISTRY --> ITEM_R["📁 item/"]
-    REGISTRY --> BLOCK_R["📁 block/"]
-    
-    COMMON --> MATERIAL["📁 material/"]
-    MATERIAL --> MMAT["ModMaterial.java"]
-    MATERIAL --> MFLUID["ModFluid.java"]
-    
-    RES --> ASSETS["📁 assets/"]
-    RES --> DATA["📁 data/"]
-    ASSETS --> TEX["📁 textures/"]
-    DATA --> REC["📁 recipes/"]
-    
-    style ROOT fill:#34495e,color:#fff
-    style SRC fill:#3498db,color:#fff
-    style JAVA fill:#2980b9,color:#fff
-    style RES fill:#9b59b6,color:#fff
-    style CORE fill:#e74c3c,color:#fff
-    style COMMON fill:#f39c12,color:#fff
-    style CLIENT fill:#27ae60,color:#fff
-    style INTEG fill:#c0392b,color:#fff
-    style MIXIN fill:#16a085,color:#fff
-```
-
-### Полная структура директорий:
-
-```
-src/main/java/org/mod/ultimate_tech/
-├── core/
-│   ├── registry/
-│   │   ├── RegistryInitializer.java (централизованная инициализация)
-│   │   ├── ModFluidUtils.java
-│   │   ├── ModItemsUtils.java
-│   │   ├── ModBlockUtils.java
-│   │   ├── fluid/
-│   │   │   ├── BaseFluidType.java
-│   │   │   ├── FluidTypesRegistry.java
-│   │   │   └── ModFluidsRegistry.java
-│   │   ├── item/
-│   │   │   ├── material/
-│   │   │   └── tool/
-│   │   └── block/
-│   │       ├── custom/ (Elevator)
-│   │       └── generator/
-│   └── datagen/ (для автогенерации)
-├── common/
-│   ├── material/
-│   │   ├── ModMaterial.java (enum материалов)
-│   │   ├── ModFluid.java (enum жидкостей)
-│   │   ├── ModRecipes.java
-│   │   └── ItemType.java
-│   ├── init/
-│   │   ├── Registry.java
-│   │   └── ModConfig.java
-│   └── network/
-│       └── NetworkHandler.java
-├── client/
-│   ├── ui/
-│   │   ├── ModCreativeTabs.java
-│   │   ├── ModCreativeTabTools.java
-│   │   ├── ModCreativeTabItems.java
-│   │   ├── ModCreativeTabFluid.java
-│   │   ├── ModCreativeTabBlocks.java
-│   │   └── screen/
-│   └── renderer/
-├── integration/
-│   ├── emi/ (EMI интеграция)
-│   │   ├── ItemCategoryClassifier.java
-│   │   └── EmiCategoryFilterController.java
-│   └── botarium/ (для блоков с сущностями)
-│       └── ModBlockEntities.java
-├── mixin/
-│   └── emi/
-│       └── EmiScreenManagerMixin.java
-├── Config.java
-└── Ultimate_tech.java (главный класс мода)
-
-src/main/resources/
-├── META-INF/
-│   ├── mods.toml
-│   ├── services/ (SPI для EMI плагина)
-│   └── accesstransformer.cfg
-├── assets/ultimate_tech/
-│   ├── textures/
-│   │   ├── block/ (текстуры блоков и жидкостей)
-│   │   ├── item/ (текстуры предметов)
-│   │   └── gui/ (UI текстуры)
-│   ├── models/ (JSON модели блоков и предметов)
-│   ├── blockstates/ (состояния блоков)
-│   └── lang/
-│       └── en_us.json (локализация)
-├── data/ultimate_tech/
-│   └── recipes/ (рецепты крафта - генерируются автоматически)
-├── ultimate_tech.mixins.json (конфиг Mixin)
-└── emi.mixins.json (конфиг Mixin для EMI)
-=======
 %% Корень
   ROOT["<b>📁 Ultimate Tech</b><br/>корень проекта"]:::root
 
@@ -370,7 +224,6 @@ src/main/resources/
   classDef integ fill:#1a3a4a,color:#7fdbda,stroke:#1abc9c,stroke-width:2px,r:8px
   classDef mixin fill:#2e1e4a,color:#d2b4de,stroke:#9b59b6,stroke-width:2px,r:8px
   classDef main fill:#4a3a1a,color:#f9e79f,stroke:#f1c40f,stroke-width:3px,r:10px
->>>>>>> Stashed changes
 ```
 
 ---
@@ -381,28 +234,6 @@ src/main/resources/
 
 ```mermaid
 flowchart TD
-<<<<<<< Updated upstream
-    START["🎮 Запуск Minecraft"] --> LOAD["📦 Forge загружает моды"]
-    LOAD --> INIT["🔧 Ultimate Tech инициализируется"]
-    INIT --> REG["📋 RegistryInitializer читает enum"]
-    REG --> CREATE["✨ Создаются все предметы/блоки"]
-    CREATE --> DEFER["🎯 DeferredRegister регистрирует"]
-    DEFER --> CLIENT["🖥️ ClientSetup инициализация"]
-    CLIENT --> READY["✅ Мод полностью готов!"]
-    
-    REG -.->|EMI| EMI["📖 EMI категоризирует рецепты"]
-    EMI --> READY
-    
-    style START fill:#3498db,color:#fff
-    style LOAD fill:#e74c3c,color:#fff
-    style INIT fill:#f39c12,color:#fff
-    style REG fill:#9b59b6,color:#fff
-    style CREATE fill:#1abc9c,color:#fff
-    style DEFER fill:#27ae60,color:#fff
-    style CLIENT fill:#16a085,color:#fff
-    style READY fill:#27ae60,color:#fff
-    style EMI fill:#c0392b,color:#fff
-=======
   START["🎮 Запуск Minecraft"]:::start
   LOAD["📦 Forge загружает моды"]:::load
   INIT["🔧 Ultimate Tech инициализируется"]:::init
@@ -432,7 +263,6 @@ flowchart TD
   classDef client fill:#2a4a5a,color:#a9cce3,stroke:#3498db,stroke-width:2px,r:6px
   classDef ready fill:#5a4a1a,color:#f9e79f,stroke:#f1c40f,stroke-width:3px,r:10px
   classDef emi fill:#5a2a3a,color:#f5b7b1,stroke:#e74c3c,stroke-width:2px,r:6px
->>>>>>> Stashed changes
 ```
 
 ### Для игроков:
@@ -472,23 +302,6 @@ cd "Ultimate Tech"
 
 ```mermaid
 flowchart TD
-<<<<<<< Updated upstream
-    A["1️⃣ Добавить в ModMaterial.java<br/>COBALT true,true,true,true,true"] --> B["2️⃣ RegistryInitializer<br/>инициализирует enum"]
-    B --> C["3️⃣ Система создаёт:<br/>- Руды 4х типов<br/>- Слитки<br/>- Сырьё<br/>- Материалы 5х типов"]
-    C --> D["4️⃣ Регистрируется в реестрах<br/>DeferredRegister"]
-    D --> E["5️⃣ Готово к использованию!<br/>CreativeTab + EMI"]
-    
-    A --> F["Текстуры?"]
-    F -->|Опционально| G["Создать PNG файлы<br/>assets/ultimate_tech/textures/"]
-    G --> E
-    
-    style A fill:#3498db,color:#fff
-    style B fill:#e74c3c,color:#fff
-    style C fill:#f39c12,color:#fff
-    style D fill:#9b59b6,color:#fff
-    style E fill:#27ae60,color:#fff
-    style G fill:#16a085,color:#fff
-=======
   A["1️⃣ Добавить в ModMaterial.java<br/>COBALT (true,true,true,true,true)"]:::step1
   B["2️⃣ RegistryInitializer<br/>инициализирует enum"]:::step2
   C["3️⃣ Система создаёт:<br/>- Руды 4х типов<br/>- Слитки<br/>- Сырьё<br/>- Материалы 5х типов"]:::step3
@@ -512,7 +325,6 @@ flowchart TD
   classDef step5 fill:#1e4a3a,color:#a3e4d7,stroke:#2ecc71,stroke-width:3px,r:10px
   classDef optional fill:#2a2a40,color:#ecf0f1,stroke:#5a6a7a,stroke-width:1px,r:4px
   classDef textures fill:#1a4a5a,color:#7fdbda,stroke:#1abc9c,stroke-width:2px,r:6px
->>>>>>> Stashed changes
 ```
 
 ### Шаг 1: Добавьте в `ModMaterial.java`:
@@ -543,18 +355,6 @@ public enum ModMaterial {
 
 ```mermaid
 flowchart TD
-<<<<<<< Updated upstream
-    A["1️⃣ Добавить в ModFluid.java<br/>ZINC(0xFF888888)"] --> B["2️⃣ Создать FluidType<br/>в FluidTypesRegistry"]
-    B --> C["3️⃣ Добавить текстуры<br/>still, flowing, overlay"]
-    C --> D["4️⃣ DeferredRegister<br/>создаст все компоненты"]
-    D --> E["✅ Готово!<br/>Source + Flowing + Block + Bucket"]
-    
-    style A fill:#3498db,color:#fff
-    style B fill:#9b59b6,color:#fff
-    style C fill:#f39c12,color:#fff
-    style D fill:#e74c3c,color:#fff
-    style E fill:#27ae60,color:#fff
-=======
   A["1️⃣ Добавить в ModFluid.java<br/>ZINC(0xFF888888)"]:::step1
   B["2️⃣ Создать FluidType<br/>в FluidTypesRegistry"]:::step2
   C["3️⃣ Добавить текстуры<br/>still, flowing, overlay"]:::step3
@@ -571,7 +371,6 @@ flowchart TD
   classDef step3 fill:#5d3a1a,color:#f0c27f,stroke:#e67e22,stroke-width:2px,r:6px
   classDef step4 fill:#4a1e2c,color:#f1948a,stroke:#e74c3c,stroke-width:2px,r:6px
   classDef step5 fill:#1e4a3a,color:#a3e4d7,stroke:#2ecc71,stroke-width:3px,r:10px
->>>>>>> Stashed changes
 ```
 
 ### Шаг 1: Добавьте в `ModFluid.java` enum:
@@ -921,51 +720,6 @@ flowchart TB
 
 ```mermaid
 graph LR
-<<<<<<< Updated upstream
-    subgraph "1. Инициализация"
-        A["🎯 Ultimate_tech.java<br/>Главный класс"]
-        A -->|вызов| B["🔧 RegistryInitializer<br/>.initializeAll"]
-    end
-    
-    subgraph "2. Регистрация компонентов"
-        B -->|читает| C["📋 ModMaterial.java<br/>enum"]
-        B -->|читает| D["💧 ModFluid.java<br/>enum"]
-        C --> E["⚙️ ModItemsUtils<br/>создание предметов"]
-        C --> F["⚙️ ModBlockUtils<br/>создание блоков"]
-        D --> G["⚙️ ModFluidUtils<br/>создание жидкостей"]
-    end
-    
-    subgraph "3. Регистрация в реестрах"
-        E --> H["📦 DeferredRegister Items"]
-        F --> I["📦 DeferredRegister Blocks"]
-        G --> J["📦 DeferredRegister Fluids"]
-    end
-    
-    subgraph "4. Forge Реестр"
-        H --> K["🎯 Forge Registry<br/>Ready!"]
-        I --> K
-        J --> K
-    end
-    
-    K -->|подключение| L["📖 EMI<br/>Интеграция"]
-    K -->|подключение| M["🎮 CreativeTabs<br/>Вкладки"]
-    
-    style A fill:#3498db,color:#fff
-    style B fill:#e74c3c,color:#fff
-    style C fill:#f39c12,color:#fff
-    style D fill:#9b59b6,color:#fff
-    style E fill:#1abc9c,color:#fff
-    style F fill:#16a085,color:#fff
-    style G fill:#27ae60,color:#fff
-    style H fill:#2980b9,color:#fff
-    style I fill:#8e44ad,color:#fff
-    style J fill:#c0392b,color:#fff
-    style K fill:#27ae60,color:#fff
-    style L fill:#f39c12,color:#fff
-    style M fill:#3498db,color:#fff
-```
-
-=======
   subgraph Init["1. Инициализация"]
     A["🎯 Ultimate_tech.java<br/>Главный класс"]:::main
     B["🔧 RegistryInitializer<br/>.initializeAll"]:::init
@@ -1026,7 +780,6 @@ graph LR
 ```
 
 
->>>>>>> Stashed changes
 ---
 
 ## 🙏 Спасибо
@@ -1045,22 +798,11 @@ graph LR
 ---
 
 ## 💬 Контакты и ссылки
-
-<<<<<<< Updated upstream
-- **GitHub:** [alyoo_sha/Ultimate-Tech](https://github.com/alyoo_sha/Ultimate-Tech)
-=======
 - **GitHub:** [Alex-12358/Ultimate-Tech](https://github.com/Alex-12358/Ultimate-Tech)
->>>>>>> Stashed changes
+
 - **Minecraft Forum:** [Ultimate Tech Mod](https://www.minecraftforge.net/)
 
 ---
 
 Made with ❤️ by Ultimate Tech Team
-<<<<<<< Updated upstream
 
-**Последнее обновление:** 2026-04-11 | **Версия:** 1.0.0
-
-**Последнее обновление:** 2026-04-09 | **Версия:** 1.0.0
-
-=======
->>>>>>> Stashed changes
