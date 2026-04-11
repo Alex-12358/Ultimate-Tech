@@ -5,7 +5,7 @@
     { "name": "DiffuseSampler" }
   ],
   "uniforms": [
-    { "name": "Radius", "type": "float", "count": 1, "values": [ 5.0 ] },
-    { "name": "TexelSize", "type": "vec2", "count": 2, "values": [ 1.0, 1.0 ] }
+    { "name": "Radius", "type": "float", "count": 1, "values": [5.0] },
+    { "name": "TexelSize", "type": "vec2", "count": 2, "values": [1.0, 1.0] }
   ]
 }

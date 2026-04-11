@@ -1,25 +1,15 @@
 {
-  "targets": [
-    "swap"
-  ],
+  "targets": ["swap"],
   "passes": [
     {
       "name": "ultimate_tech:blur_h",
       "intarget": "minecraft:main",
-      "outtarget": "swap",
-      "uniforms": [
-        { "name": "Radius", "values": [ 5.0 ] },
-        { "name": "TexelSize", "values": [ 0.001953125, 0.0 ] }
-      ]
+      "outtarget": "swap"
     },
     {
       "name": "ultimate_tech:blur_v",
       "intarget": "swap",
-      "outtarget": "minecraft:main",
-      "uniforms": [
-        { "name": "Radius", "values": [ 5.0 ] },
-        { "name": "TexelSize", "values": [ 0.0, 0.001953125 ] }
-      ]
+      "outtarget": "minecraft:main"
     }
   ]
 }
