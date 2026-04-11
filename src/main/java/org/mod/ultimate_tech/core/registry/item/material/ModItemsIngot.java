@@ -14,12 +14,8 @@ public class ModItemsIngot {
     public static void generate() {
 
         for (ModMaterial material : ModMaterial.values()) {
-
-            // создаём слиток только если он существует
             if (!material.hasIngot()) continue;
-
             String name = material.getName() + "_ingot";
-
             INGOTS.put(
                     material,
                     ModItemsUtils.ITEMS.register(name,

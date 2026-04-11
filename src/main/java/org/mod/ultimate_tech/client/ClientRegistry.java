@@ -41,11 +41,40 @@ public class ClientRegistry {
     @SubscribeEvent
     public static void onItemColorHandlersRegistry(RegisterColorHandlersEvent.Item e) {
         ToolItemColor toolColor = new ToolItemColor();
-        // Регистрируем все инструменты
+
+        // Мечи
+        registerSwordColors(e, toolColor);
+
+        // Кирки
+        registerPickaxeColors(e, toolColor);
+
+        // Топоры
+        registerAxeColors(e, toolColor);
+
+        // Лопаты
+        registerShovelColors(e, toolColor);
+
+        // Мотыги
+        registerHoeColors(e, toolColor);
+    }
+
+    private static void registerSwordColors(RegisterColorHandlersEvent.Item e, ToolItemColor toolColor) {
         e.register(toolColor, ModItemsToolSword.SWORDS.values().stream().map(RegistryObject::get).toArray(Item[]::new));
+    }
+
+    private static void registerPickaxeColors(RegisterColorHandlersEvent.Item e, ToolItemColor toolColor) {
         e.register(toolColor, ModItemsToolPickaxe.PICKAXES.values().stream().map(RegistryObject::get).toArray(Item[]::new));
+    }
+
+    private static void registerAxeColors(RegisterColorHandlersEvent.Item e, ToolItemColor toolColor) {
         e.register(toolColor, ModItemsToolAxe.AXES.values().stream().map(RegistryObject::get).toArray(Item[]::new));
+    }
+
+    private static void registerShovelColors(RegisterColorHandlersEvent.Item e, ToolItemColor toolColor) {
         e.register(toolColor, ModItemsToolShovel.SHOVELS.values().stream().map(RegistryObject::get).toArray(Item[]::new));
+    }
+
+    private static void registerHoeColors(RegisterColorHandlersEvent.Item e, ToolItemColor toolColor) {
         e.register(toolColor, ModItemsToolHoe.HOES.values().stream().map(RegistryObject::get).toArray(Item[]::new));
     }
 

@@ -11,9 +11,11 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
 import org.mod.ultimate_tech.Ultimate_tech;
 import org.mod.ultimate_tech.common.init.Registry;
+import org.mod.ultimate_tech.common.material.ModGames;
 import org.mod.ultimate_tech.common.material.ModMaterial;
 import org.mod.ultimate_tech.core.registry.block.generator.*;
 import org.mod.ultimate_tech.core.registry.item.material.*;
+import org.mod.ultimate_tech.core.registry.item.tool.*;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -155,6 +157,76 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .requires(ingot)
                         .unlockedBy(getHasName(ingot), has(ingot))
                         .save(pWriter, Ultimate_tech.MOD_ID + ":" + material.getName() + "_nuggets");
+            }
+        }
+
+        // TOOL RECIPES for ModGames (драгоценности)
+        for (ModGames material : ModGames.values()) {
+            ItemLike ingot = ModGamesItem.INGOTS.get(material).get();
+
+            // SWORD
+            if (material.hasSword() && ModItemsToolSword.SWORDS.containsKey(material)) {
+                ItemLike sword = ModItemsToolSword.SWORDS.get(material).get();
+                ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, sword)
+                        .pattern("I")
+                        .pattern("I")
+                        .pattern("S")
+                        .define('I', ingot)
+                        .define('S', Items.STICK)
+                        .unlockedBy(getHasName(ingot), has(ingot))
+                        .save(pWriter);
+            }
+
+            // PICKAXE
+            if (material.hasPickaxe() && ModItemsToolPickaxe.PICKAXES.containsKey(material)) {
+                ItemLike pickaxe = ModItemsToolPickaxe.PICKAXES.get(material).get();
+                ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, pickaxe)
+                        .pattern("III")
+                        .pattern(" S ")
+                        .pattern(" S ")
+                        .define('I', ingot)
+                        .define('S', Items.STICK)
+                        .unlockedBy(getHasName(ingot), has(ingot))
+                        .save(pWriter);
+            }
+
+            // AXE
+            if (material.hasAxe() && ModItemsToolAxe.AXES.containsKey(material)) {
+                ItemLike axe = ModItemsToolAxe.AXES.get(material).get();
+                ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, axe)
+                        .pattern("II")
+                        .pattern("IS")
+                        .pattern(" S")
+                        .define('I', ingot)
+                        .define('S', Items.STICK)
+                        .unlockedBy(getHasName(ingot), has(ingot))
+                        .save(pWriter);
+            }
+
+            // SHOVEL
+            if (material.hasShovel() && ModItemsToolShovel.SHOVELS.containsKey(material)) {
+                ItemLike shovel = ModItemsToolShovel.SHOVELS.get(material).get();
+                ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, shovel)
+                        .pattern("I")
+                        .pattern("S")
+                        .pattern("S")
+                        .define('I', ingot)
+                        .define('S', Items.STICK)
+                        .unlockedBy(getHasName(ingot), has(ingot))
+                        .save(pWriter);
+            }
+
+            // HOE
+            if (material.hasHoe() && ModItemsToolHoe.HOES.containsKey(material)) {
+                ItemLike hoe = ModItemsToolHoe.HOES.get(material).get();
+                ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, hoe)
+                        .pattern("II")
+                        .pattern(" S")
+                        .pattern(" S")
+                        .define('I', ingot)
+                        .define('S', Items.STICK)
+                        .unlockedBy(getHasName(ingot), has(ingot))
+                        .save(pWriter);
             }
         }
 

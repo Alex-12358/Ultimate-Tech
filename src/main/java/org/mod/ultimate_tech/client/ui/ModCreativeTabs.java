@@ -38,6 +38,7 @@ public class ModCreativeTabs {
 
                         ModItemsRod.RODS.values().forEach(item -> output.accept(item.get()));
                         ModItemsIngot.INGOTS.values().forEach(item -> output.accept(item.get()));
+                        ModGamesItem.INGOTS.values().forEach(item -> output.accept(item.get()));
                         ModItemsPlate.PLATES.values().forEach(item -> output.accept(item.get()));
                         ModItemsDust.DUSTS.values().forEach(item -> output.accept(item.get()));
                         ModItemsNugget.NUGGETS.values().forEach(item -> output.accept(item.get()));

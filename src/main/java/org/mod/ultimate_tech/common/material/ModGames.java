@@ -9,7 +9,7 @@ public enum ModGames {
             7.0f, 1.0f,
             0.0f, 0.0f,
             0, 0.0f,
-            0
+            0xFF0000  // Красный (рубин)
     ),
     SAPPHIRE(
             true, true, true,
@@ -19,7 +19,7 @@ public enum ModGames {
             6.0f, 0.8f,
             1.0f, 0.0f,
             0, 0.0f,
-            0
+            0x0052BA  // Синий (сапфир)
     ),
     TOPAZ(
             true, true, true,
@@ -29,7 +29,7 @@ public enum ModGames {
             6.5f, 0.9f,
             0.5f, 0.0f,
             0, 0.0f,
-            0
+            0xFFD700  // Золотой/жёлтый (топаз)
     ),
     AMETHYST(
             true, true, true,
@@ -39,7 +39,7 @@ public enum ModGames {
             5.5f, 1.1f,
             0.0f, 0.1f,
             0, 0.0f,
-            0
+            0x9966CC  // Фиолетовый (аметист)
     ),
     GARNET(
             true, true, true,
@@ -49,7 +49,7 @@ public enum ModGames {
             7.0f, 1.0f,
             0.0f, 0.0f,
             0, 0.0f,
-            0
+            0xB71C1C  // Тёмно-красный (гранат)
     ),
     OPAL(
             true, true, true,
@@ -59,7 +59,7 @@ public enum ModGames {
             5.8f, 1.0f,
             0.2f, 0.0f,
             0, 0.0f,
-            0
+            0xF0F8FF  // Бело-голубой (опал)
     ),
     JADE(
             true, true, true,
@@ -69,7 +69,7 @@ public enum ModGames {
             7.2f, 0.8f,
             0.5f, -0.1f,
             0, 0.0f,
-            0
+            0x00AA33  // Зелёный (нефрит)
     ),
     MALACHITE(
             true, true, true,
@@ -79,7 +79,7 @@ public enum ModGames {
             6.8f, 0.9f,
             0.3f, 0.0f,
             0, 0.0f,
-            0
+            0x00B060  // Изумруд-зелёный (малахит)
     ),
     AQUAMARINE(
             true, true, true,
@@ -89,7 +89,7 @@ public enum ModGames {
             6.0f, 1.0f,
             0.2f, 0.1f,
             0, 0.0f,
-            0
+            0x00BFFF  // Голубой (аквамарин)
     ),
     SPINEL(
             true, true, true,
@@ -99,7 +99,7 @@ public enum ModGames {
             7.5f, 0.8f,
             0.5f, 0.0f,
             0, 0.0f,
-            0
+            0xFF1493  // Глубокий розовый (шпинель)
     ),
     ZIRCON(
             true, true, true,
@@ -109,7 +109,7 @@ public enum ModGames {
             6.7f, 0.9f,
             0.3f, 0.0f,
             0, 0.0f,
-            0
+            0xDCDCDC  // Серебристо-серый (циркон)
     ),
     MORGANITE(
             true, true, true,
@@ -119,7 +119,7 @@ public enum ModGames {
             6.3f, 1.0f,
             0.2f, 0.0f,
             0, 0.0f,
-            0xFF69B4
+            0xFFB6C1  // Светло-розовый (морганит)
     );
 
     private final boolean hasGames;

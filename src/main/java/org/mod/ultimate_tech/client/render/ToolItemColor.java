@@ -10,9 +10,11 @@ public class ToolItemColor implements ItemColor {
 
     @Override
     public int getColor(ItemStack stack, int tintIndex) {
-        // Проверяем наличие второго слоя (tintIndex == 1 для layer1)
-        if (tintIndex != 1) {
-            return -1; // -1 означает без тинта для первого слоя
+        // Применяем тинт только для layer0 (головка инструмента)
+        // layer0 - головка (окрашивается в цвет материала)
+        // layer1 - рукоять (не тинтируется, -1)
+        if (tintIndex != 0) {
+            return -1; // без тинта для слоя 1 и остальных
         }
 
         Item item = stack.getItem();

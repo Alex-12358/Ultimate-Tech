@@ -128,3 +128,4 @@ run-data/logs/debug-2.log.gz
 *.gz
 *.gz
 *.gz
+/run-data

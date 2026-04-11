@@ -44,18 +44,18 @@ public class ModEnglishLangProvider extends ModLangProvider {
         addEmi("category", "tools", "Tools");
         addEmi("category", "fluids", "Fluids");
 
-        addItem("topaz_ingot", "Topaz");
-        addItem("amethyst_ingot", "Amethyst");
-        addItem("spinel_ingot", "Spinel");
-        addItem("opal_ingot", "Opal");
-        addItem("ruby_ingot", "Ruby");
-        addItem("sapphire_ingot", "Sapphire");
-        addItem("zircon_ingot", "Zircon");
-        addItem("garnet_ingot", "Garnet");
-        addItem("aquamarine_ingot", "Aquamarine");
-        addItem("jade_ingot", "Jade");
-        addItem("malachite_ingot", "Malachite");
-        addItem("morganite_ingot", "Morganite");
+        addItem("topaz", "Topaz");
+        addItem("amethyst", "Amethyst");
+        addItem("spinel", "Spinel");
+        addItem("opal", "Opal");
+        addItem("ruby", "Ruby");
+        addItem("sapphire", "Sapphire");
+        addItem("zircon", "Zircon");
+        addItem("garnet", "Garnet");
+        addItem("aquamarine", "Aquamarine");
+        addItem("jade", "Jade");
+        addItem("malachite", "Malachite");
+        addItem("morganite", "Morganite");
 
         addItem("topaz_sword", "Topaz sword");
         addItem("amethyst_sword", "Amethyst sword");

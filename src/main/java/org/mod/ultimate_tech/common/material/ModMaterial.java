@@ -224,8 +224,8 @@ public enum ModMaterial {
     ZIRCONIUM(true, false, 
         true, true, true, true, 
         true, true, true, 
-        true, true, true),
-    RUBY(
+        true, true, true);
+    /* RUBY(
         true, false, false,
         true, true, false, 
         false, true, false,
@@ -296,7 +296,7 @@ public enum ModMaterial {
         true, true, false, 
         false, true, false,
         false, false, false
-        );
+        ); */
 
     private final boolean hasIngot;
     private final boolean hasDust;

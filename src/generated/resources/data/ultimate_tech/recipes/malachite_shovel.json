@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "ultimate_tech:malachite"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "I",
+    "S",
+    "S"
+  ],
+  "result": {
+    "item": "ultimate_tech:malachite_shovel"
+  },
+  "show_notification": true
+}

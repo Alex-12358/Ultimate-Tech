@@ -1,0 +1,20 @@
+{
+  "credit": "Ultimate Tech - Tool Handle Texture",
+  "textures": {
+    "particle": "ultimate_tech:item/tools/handle",
+    "handle": "ultimate_tech:item/tools/handle"
+  },
+  "elements": [
+    {
+      "from": [7.5, 0, 7.5],
+      "to": [8.5, 14, 8.5],
+      "faces": {
+        "north": {"uv": [0, 0, 1, 14], "texture": "#handle"},
+        "south": {"uv": [0, 0, 1, 14], "texture": "#handle"},
+        "west": {"uv": [0, 0, 1, 14], "texture": "#handle"},
+        "east": {"uv": [0, 0, 1, 14], "texture": "#handle"}
+      }
+    }
+  ]
+}
+

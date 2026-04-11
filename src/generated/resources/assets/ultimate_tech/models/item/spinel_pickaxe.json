@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "minecraft:item/diamond_pickaxe"
+    "layer0": "ultimate_tech:item/tool/pickaxe",
+    "layer1": "ultimate_tech:item/tool/pickaxe_handle"
   }
 }

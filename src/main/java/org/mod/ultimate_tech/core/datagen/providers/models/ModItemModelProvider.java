@@ -39,12 +39,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         // raw materials
         ModItemsRaw.RAW_ITEMS.values().forEach(item -> simpleItem(item, "raw"));
 
-        // TOOLS - Простые модели с одноцветными текстурами (используем однопиксельный квадрат)
-        ModItemsToolSword.SWORDS.values().forEach(item -> toolItem(item, "sword"));
-        ModItemsToolPickaxe.PICKAXES.values().forEach(item -> toolItem(item, "pickaxe"));
-        ModItemsToolAxe.AXES.values().forEach(item -> toolItem(item, "axe"));
-        ModItemsToolShovel.SHOVELS.values().forEach(item -> toolItem(item, "shovel"));
-        ModItemsToolHoe.HOES.values().forEach(item -> toolItem(item, "hoe"));
+        // GEM INGOTS - Регистрируем текстуры для драгоценностей
+        registerGemIngots();
+
+        // TOOLS - Инструменты для материалов (материалов, которые есть в ModMaterial)
+        // Каждый тип инструмента имеет свою регистрацию
+        registerSwords();
+        registerPickaxes();
+        registerAxes();
+        registerShovels();
+        registerHoes();
 
         // ELEVATORS - Генерируем модели для всех цветов лифтов
         for (DyeColor color : DyeColor.values()) {
@@ -52,6 +56,10 @@ public class ModItemModelProvider extends ItemModelProvider {
             withExistingParent("elevator_" + color.getName(), mcLoc("block/cube_all"))
                     .texture("all", new ResourceLocation(Ultimate_tech.MOD_ID, "block/elevator_" + color.getName()));
         }
+
+        // TODO: TOOLS для драгоценностей (ModGames)
+        // Пока текстуры не готовы, используем ванильные текстуры инструментов
+        // Нужно создать текстуры в папке src/main/resources/assets/ultimate_tech/textures/item/tools/
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item, String folder) {
@@ -64,27 +72,62 @@ public class ModItemModelProvider extends ItemModelProvider {
                         ));
     }
 
-    // Метод для создания моделей инструментов с цветом материала (используется текстура блока)
+    // Метод для создания моделей инструментов с собственными текстурами
     private ItemModelBuilder toolItem(RegistryObject<Item> item, String toolType) {
-        // Извлекаем имя материала из имени инструмента (например: "amethyst_sword" -> "amethyst")
+        // Получаем имя предмета (например: "ruby_sword")
         String itemName = item.getId().getPath();
-        String materialName = itemName.replace("_" + toolType, "");
-
-        // Используем ванильные текстуры инструментов как layer0 (основа)
-        String vanillaTexture = switch(toolType) {
-            case "sword" -> "item/diamond_sword";
-            case "pickaxe" -> "item/diamond_pickaxe";
-            case "axe" -> "item/diamond_axe";
-            case "shovel" -> "item/diamond_shovel";
-            case "hoe" -> "item/diamond_hoe";
-            default -> "item/diamond_sword";
-        };
 
         // Создаём модель с двумя слоями:
-        // layer0 - ванильная текстура инструмента (серая)
-        // layer1 - белая текстура для тинта (будет окрашена в цвет материала)
+        // layer0 - головка инструмента (окрашивается в цвет материала)
+        // layer1 - рукоять/палка (не окрашивается)
         return withExistingParent(itemName, mcLoc("item/handheld"))
-                .texture("layer0", mcLoc(vanillaTexture))
-                .texture("layer1", new ResourceLocation(Ultimate_tech.MOD_ID, "item/" + toolType + "/overlay"));
+                .texture("layer0", new ResourceLocation(Ultimate_tech.MOD_ID, "item/tool/" + toolType))
+                .texture("layer1", new ResourceLocation(Ultimate_tech.MOD_ID, "item/tool/" + toolType + "_handle"));
+    }
+
+    /**
+     * Регистрирует модели мечей
+     */
+    private void registerSwords() {
+        ModItemsToolSword.SWORDS.values().forEach(item -> toolItem(item, "sword"));
+    }
+
+    /**
+     * Регистрирует модели кирок
+     */
+    private void registerPickaxes() {
+        ModItemsToolPickaxe.PICKAXES.values().forEach(item -> toolItem(item, "pickaxe"));
+    }
+
+    /**
+     * Регистрирует модели топоров
+     */
+    private void registerAxes() {
+        ModItemsToolAxe.AXES.values().forEach(item -> toolItem(item, "axe"));
+    }
+
+    /**
+     * Регистрирует модели лопат
+     */
+    private void registerShovels() {
+        ModItemsToolShovel.SHOVELS.values().forEach(item -> toolItem(item, "shovel"));
+    }
+
+    /**
+     * Регистрирует модели мотыг
+     */
+    private void registerHoes() {
+        ModItemsToolHoe.HOES.values().forEach(item -> toolItem(item, "hoe"));
+    }
+
+    /**
+     * Регистрирует текстуры для драгоценностей (ModGamesItem ingots)
+     */
+    private void registerGemIngots() {
+        ModGamesItem.INGOTS.forEach((material, item) -> {
+            String gemName = material.getName();
+            withExistingParent(item.getId().getPath(), mcLoc("item/generated"))
+                    .texture("layer0", new ResourceLocation(Ultimate_tech.MOD_ID, "item/ignot/" + gemName + "_ingot"));
+        });
     }
 }

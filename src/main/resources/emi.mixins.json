@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "org.emi.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "emi.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "org.emi.mixin.AbstractInventoryScreenMixin",
+    "org.emi.mixin.CraftingResultSlotMixin",
+    "org.emi.mixin.DrawContextMixin",
+    "org.emi.mixin.HandledScreenMixin",
+    "org.emi.mixin.HoeItemMixin",
+    "org.emi.mixin.ItemStackMixin",
+    "org.emi.mixin.KeyboardMixin",
+    "org.emi.mixin.MinecraftClientMixin",
+    "org.emi.mixin.MouseMixin",
+    "org.emi.mixin.RecipeBookWidgetMixin",
+    "org.emi.mixin.ScreenMixin",
+    "org.emi.mixin.ToastManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
+

@@ -43,18 +43,18 @@ public class ModRussianLangProvider extends ModLangProvider{
         addEmi("category", "tools", "Инструменты");
         addEmi("category", "fluids", "Жидкости");
 
-        addItem("topaz_ingot", "Топаз");
-        addItem("amethyst_ingot", "Аметист");
-        addItem("spinel_ingot", "Шпинель");
-        addItem("opal_ingot", "Опал");
-        addItem("ruby_ingot", "Рубин");
-        addItem("sapphire_ingot", "Сапфир");
-        addItem("zircon_ingot", "Циркон");
-        addItem("garnet_ingot", "Гранат");
-        addItem("aquamarine_ingot", "Аквамарин");
-        addItem("jade_ingot", "Нефрит");
-        addItem("malachite_ingot", "Малахит");
-        addItem("morganite_ingot", "Морганит");
+        addItem("topaz", "Топаз");
+        addItem("amethyst", "Аметист");
+        addItem("spinel", "Шпинель");
+        addItem("opal", "Опал");
+        addItem("ruby", "Рубин");
+        addItem("sapphire", "Сапфир");
+        addItem("zircon", "Циркон");
+        addItem("garnet", "Гранат");
+        addItem("aquamarine", "Аквамарин");
+        addItem("jade", "Нефрит");
+        addItem("malachite", "Малахит");
+        addItem("morganite", "Морганит");
 
         addItem("topaz_sword", "Топазовый меч");
         addItem("amethyst_sword", "Аметистовый меч");

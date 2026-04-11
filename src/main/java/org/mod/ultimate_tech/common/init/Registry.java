@@ -1,6 +1,5 @@
 package org.mod.ultimate_tech.common.init;
 
-import io.netty.channel.ChannelFuture;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

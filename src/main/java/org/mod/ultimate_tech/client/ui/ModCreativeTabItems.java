@@ -41,7 +41,10 @@ public class ModCreativeTabItems {
                     .icon(() -> new ItemStack(Items.IRON_INGOT))
                     .title(Component.translatable("creativetab.ultimate_tech.ingots"))
                     .displayItems((params, output) ->
-                            ModItemsIngot.INGOTS.values().forEach(item -> output.accept(item.get()))
+                            {
+                                ModItemsIngot.INGOTS.values().forEach(item -> output.accept(item.get()));
+                                ModGamesItem.INGOTS.values().forEach(item -> output.accept(item.get()));
+                            }
                     ).build());
 
 

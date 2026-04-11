@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "minecraft:item/diamond_shovel"
+    "layer0": "ultimate_tech:item/tool/shovel",
+    "layer1": "ultimate_tech:item/tool/shovel_handle"
   }
 }
