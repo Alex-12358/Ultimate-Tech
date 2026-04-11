@@ -1,7 +1,7 @@
 # Ultimate Tech Mod
 
 [![Minecraft Version](https://img.shields.io/badge/Minecraft-1.20.1-green)](https://www.minecraft.net/)
-[![Forge Version](https://img.shields.io/badge/Forge-47.x-orange)](https://files.minecraftforge.net/)
+[![Forge Version](https://img.shields.io/badge/Forge-47.4.10-orange)](https://files.minecraftforge.net/)
 [![Java](https://img.shields.io/badge/Java-17+-red)](https://www.java.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
@@ -51,60 +51,195 @@
 
 ### Версии:
 - **Minecraft:** 1.20.1
-- **Forge:** 47.x
+- **Forge:** 47.4.10
 - **Java:** 17+
+- **EMI:** 1.1.22+1.20.1
+- **Botarium:** 2.3.4
+- **Fusion:** 1.2.5
 - **Язык программирования:** Java
+- **Mapping:** Parchment 2023.09.03
 
 ### Архитектура:
 
-```
-enum ModFluid / ModMaterial
-    ↓
-RegistryInitializer (централизованная инициализация)
-    ↓
-ModFluidsRegistry / ModItemsUtils / ModBlockUtils
-    ↓
-DeferredRegister (Forge реестр)
-    ↓
-Ultimate Tech - готово!
+```mermaid
+flowchart TB
+    ENUM["📋 Enum<br/>ModMaterial<br/>ModFluid"]
+    
+    INIT["🔧 RegistryInitializer<br/>(Централизованная инициализация)"]
+    
+    UTILS["⚙️ Utils<br/>ModFluidUtils<br/>ModItemsUtils<br/>ModBlockUtils"]
+    
+    REGISTRY["📦 Registry<br/>ModFluidsRegistry<br/>ModItemsRegistry<br/>ModBlocksRegistry"]
+    
+    DEFER["🎯 DeferredRegister<br/>(Forge реестр)"]
+    
+    FINAL["✅ Ultimate Tech<br/>Полностью готово!"]
+    
+    ENUM --> INIT
+    INIT --> UTILS
+    UTILS --> REGISTRY
+    REGISTRY --> DEFER
+    DEFER --> FINAL
+    
+    style ENUM fill:#3498db,color:#fff,stroke:#2980b9,stroke-width:2px
+    style INIT fill:#e74c3c,color:#fff,stroke:#c0392b,stroke-width:2px
+    style UTILS fill:#f39c12,color:#fff,stroke:#d68910,stroke-width:2px
+    style REGISTRY fill:#9b59b6,color:#fff,stroke:#8e44ad,stroke-width:2px
+    style DEFER fill:#27ae60,color:#fff,stroke:#229954,stroke-width:2px
+    style FINAL fill:#16a085,color:#fff,stroke:#117a65,stroke-width:2px
 ```
 
 ---
 
 ## 📁 Структура проекта
 
+```mermaid
+flowchart LR
+    ROOT["📁 Ultimate Tech"]
+    
+    ROOT --> SRC["📁 src/main"]
+    ROOT --> GRADLE["📄 build.gradle"]
+    
+    SRC --> JAVA["📁 java"]
+    SRC --> RES["📁 resources"]
+    
+    JAVA --> ORG["📁 org/mod/ultimate_tech/"]
+    
+    ORG --> CORE["📁 core/"]
+    ORG --> COMMON["📁 common/"]
+    ORG --> CLIENT["📁 client/"]
+    ORG --> INTEG["📁 integration/"]
+    ORG --> MIXIN["📁 mixin/"]
+    ORG --> MAIN["🔧 Ultimate_tech.java"]
+    
+    CORE --> REGISTRY["📁 registry/"]
+    REGISTRY --> INIT["RegistryInitializer.java"]
+    REGISTRY --> FLUID_R["📁 fluid/"]
+    REGISTRY --> ITEM_R["📁 item/"]
+    REGISTRY --> BLOCK_R["📁 block/"]
+    
+    COMMON --> MATERIAL["📁 material/"]
+    MATERIAL --> MMAT["ModMaterial.java"]
+    MATERIAL --> MFLUID["ModFluid.java"]
+    
+    RES --> ASSETS["📁 assets/"]
+    RES --> DATA["📁 data/"]
+    ASSETS --> TEX["📁 textures/"]
+    DATA --> REC["📁 recipes/"]
+    
+    style ROOT fill:#34495e,color:#fff
+    style SRC fill:#3498db,color:#fff
+    style JAVA fill:#2980b9,color:#fff
+    style RES fill:#9b59b6,color:#fff
+    style CORE fill:#e74c3c,color:#fff
+    style COMMON fill:#f39c12,color:#fff
+    style CLIENT fill:#27ae60,color:#fff
+    style INTEG fill:#c0392b,color:#fff
+    style MIXIN fill:#16a085,color:#fff
 ```
-Ultimate Tech/
-├── src/main/java/org/mod/ultimate_tech/
-│   ├── core/registry/
-│   │   ├── RegistryInitializer.java     ← Главный инициализатор
+
+### Полная структура директорий:
+
+```
+src/main/java/org/mod/ultimate_tech/
+├── core/
+│   ├── registry/
+│   │   ├── RegistryInitializer.java (централизованная инициализация)
+│   │   ├── ModFluidUtils.java
+│   │   ├── ModItemsUtils.java
+│   │   ├── ModBlockUtils.java
 │   │   ├── fluid/
-│   │   │   ├── BaseFluidType.java       ← Управление жидкостями
-│   │   │   ├── FluidTypesRegistry.java  ← Регистрация типов жидкостей
-│   │   │   ├── ModFluidsRegistry.java   ← Автоматическая регистрация
-│   │   │   └── ModFluidUtils.java
+│   │   │   ├── BaseFluidType.java
+│   │   │   ├── FluidTypesRegistry.java
+│   │   │   └── ModFluidsRegistry.java
 │   │   ├── item/
-│   │   │   ├── material/                ← Генерация материальных предметов
-│   │   │   └── tool/                    ← Генерация инструментов
-│   │   ├── block/
-│   │   │   ├── custom/                  ← Кастомные блоки (elevator)
-│   │   │   └── generator/               ← Автогенерация блоков
-│   │   └── ModBlockUtils.java
-│   ├── common/
-│   │   ├── material/ModFluid.java       ← Enum жидкостей
-│   │   └── init/Registry.java
-│   ├── integration/
-│   │   └── emi/                         ← EMI интеграция
-│   │       ├── ItemCategoryClassifier.java
-│   │       └── EmiCategoryFilterController.java
-│   └── mixin/
-│       └── emi/EmiScreenManagerMixin.java
-└── README.md
+│   │   │   ├── material/
+│   │   │   └── tool/
+│   │   └── block/
+│   │       ├── custom/ (Elevator)
+│   │       └── generator/
+│   └── datagen/ (для автогенерации)
+├── common/
+│   ├── material/
+│   │   ├── ModMaterial.java (enum материалов)
+│   │   ├── ModFluid.java (enum жидкостей)
+│   │   ├── ModRecipes.java
+│   │   └── ItemType.java
+│   ├── init/
+│   │   ├── Registry.java
+│   │   └── ModConfig.java
+│   └── network/
+│       └── NetworkHandler.java
+├── client/
+│   ├── ui/
+│   │   ├── ModCreativeTabs.java
+│   │   ├── ModCreativeTabTools.java
+│   │   ├── ModCreativeTabItems.java
+│   │   ├── ModCreativeTabFluid.java
+│   │   ├── ModCreativeTabBlocks.java
+│   │   └── screen/
+│   └── renderer/
+├── integration/
+│   ├── emi/ (EMI интеграция)
+│   │   ├── ItemCategoryClassifier.java
+│   │   └── EmiCategoryFilterController.java
+│   └── botarium/ (для блоков с сущностями)
+│       └── ModBlockEntities.java
+├── mixin/
+│   └── emi/
+│       └── EmiScreenManagerMixin.java
+├── Config.java
+└── Ultimate_tech.java (главный класс мода)
+
+src/main/resources/
+├── META-INF/
+│   ├── mods.toml
+│   ├── services/ (SPI для EMI плагина)
+│   └── accesstransformer.cfg
+├── assets/ultimate_tech/
+│   ├── textures/
+│   │   ├── block/ (текстуры блоков и жидкостей)
+│   │   ├── item/ (текстуры предметов)
+│   │   └── gui/ (UI текстуры)
+│   ├── models/ (JSON модели блоков и предметов)
+│   ├── blockstates/ (состояния блоков)
+│   └── lang/
+│       └── en_us.json (локализация)
+├── data/ultimate_tech/
+│   └── recipes/ (рецепты крафта - генерируются автоматически)
+├── ultimate_tech.mixins.json (конфиг Mixin)
+└── emi.mixins.json (конфиг Mixin для EMI)
 ```
 
 ---
 
 ## 🚀 Начало работы
+
+### Процесс работы мода:
+
+```mermaid
+flowchart TD
+    START["🎮 Запуск Minecraft"] --> LOAD["📦 Forge загружает моды"]
+    LOAD --> INIT["🔧 Ultimate Tech инициализируется"]
+    INIT --> REG["📋 RegistryInitializer читает enum"]
+    REG --> CREATE["✨ Создаются все предметы/блоки"]
+    CREATE --> DEFER["🎯 DeferredRegister регистрирует"]
+    DEFER --> CLIENT["🖥️ ClientSetup инициализация"]
+    CLIENT --> READY["✅ Мод полностью готов!"]
+    
+    REG -.->|EMI| EMI["📖 EMI категоризирует рецепты"]
+    EMI --> READY
+    
+    style START fill:#3498db,color:#fff
+    style LOAD fill:#e74c3c,color:#fff
+    style INIT fill:#f39c12,color:#fff
+    style REG fill:#9b59b6,color:#fff
+    style CREATE fill:#1abc9c,color:#fff
+    style DEFER fill:#27ae60,color:#fff
+    style CLIENT fill:#16a085,color:#fff
+    style READY fill:#27ae60,color:#fff
+    style EMI fill:#c0392b,color:#fff
+```
 
 ### Для игроков:
 
@@ -128,23 +263,49 @@ cd "Ultimate Tech"
 
 #### 3. Откройте проект в IntelliJ IDEA
 
-#### 4. Запустите `runClient`
+#### 4. Запустите конфигурацию `runClient` для тестирования
+
+#### 5. Для генерации рецептов запустите `runData`:
+```bash
+./gradlew runData
+```
 
 ---
 
 ## 📚 Система регистрации материалов
 
-### Автоматическая генерация:
+### Процесс создания нового материала:
 
-#### 1️⃣ Добавьте материал в enum (если нужен новый):
+```mermaid
+flowchart TD
+    A["1️⃣ Добавить в ModMaterial.java<br/>COBALT true,true,true,true,true"] --> B["2️⃣ RegistryInitializer<br/>инициализирует enum"]
+    B --> C["3️⃣ Система создаёт:<br/>- Руды 4х типов<br/>- Слитки<br/>- Сырьё<br/>- Материалы 5х типов"]
+    C --> D["4️⃣ Регистрируется в реестрах<br/>DeferredRegister"]
+    D --> E["5️⃣ Готово к использованию!<br/>CreativeTab + EMI"]
+    
+    A --> F["Текстуры?"]
+    F -->|Опционально| G["Создать PNG файлы<br/>assets/ultimate_tech/textures/"]
+    G --> E
+    
+    style A fill:#3498db,color:#fff
+    style B fill:#e74c3c,color:#fff
+    style C fill:#f39c12,color:#fff
+    style D fill:#9b59b6,color:#fff
+    style E fill:#27ae60,color:#fff
+    style G fill:#16a085,color:#fff
+```
+
+### Шаг 1: Добавьте в `ModMaterial.java`:
 
 ```java
 // ModMaterial.java
-COBALT(true, true, true, true, true);  
-// ore, ingot, block, tool, fluid
+public enum ModMaterial {
+    COBALT(true, true, true, true, true),
+    // ore, ingot, block, tool, fluid
+}
 ```
 
-#### 2️⃣ Система **автоматически создаст:**
+### Шаг 2: Система **автоматически создаст:**
 
 ✅ Руды (обычная, deepslate, nether, end)
 ✅ Слитки
@@ -158,54 +319,67 @@ COBALT(true, true, true, true, true);
 
 ## 💧 Система регистрации жидкостей
 
-### Автоматическая регистрация жидкостей:
+### Процесс создания жидкости:
 
-#### 1️⃣ Добавьте в `ModFluid.java` enum:
+```mermaid
+flowchart TD
+    A["1️⃣ Добавить в ModFluid.java<br/>ZINC(0xFF888888)"] --> B["2️⃣ Создать FluidType<br/>в FluidTypesRegistry"]
+    B --> C["3️⃣ Добавить текстуры<br/>still, flowing, overlay"]
+    C --> D["4️⃣ DeferredRegister<br/>создаст все компоненты"]
+    D --> E["✅ Готово!<br/>Source + Flowing + Block + Bucket"]
+    
+    style A fill:#3498db,color:#fff
+    style B fill:#9b59b6,color:#fff
+    style C fill:#f39c12,color:#fff
+    style D fill:#e74c3c,color:#fff
+    style E fill:#27ae60,color:#fff
+```
+
+### Шаг 1: Добавьте в `ModFluid.java` enum:
 
 ```java
 public enum ModFluid {
-    REDSTONE(true),
-    CRUDE_OIL(true),
-    ZINC(true),        // ← Новая жидкость
+    REDSTONE(0xFFFF0000),      // Красная жидкость
+    CRUDE_OIL(0xFF1a1a1a),     // Чёрная жидкость (сырая нефть)
+    ZINC(0xFF888888),          // ← Новая жидкость (серая)
     ;
     // ...остальное...
 }
 ```
 
-#### 2️⃣ Добавьте в `FluidTypesRegistry.java`:
+### Шаг 2: Зарегистрируйте в `FluidTypesRegistry.java`:
 
 ```java
 public static final RegistryObject<FluidType> ZINC_FLUID_TYPE =
-        FLUID_TYPES.register("zinc_fluid", () -> new BaseFluidType(
-                new ResourceLocation(MOD_ID, "block/zinc_fluid_still"),
-                new ResourceLocation(MOD_ID, "block/zinc_fluid_flowing"),
-                new ResourceLocation(MOD_ID, "block/zinc_fluid_overlay"),
+        FLUID_TYPES.register("zinc", () -> new BaseFluidType(
+                new ResourceLocation(MOD_ID, "block/zinc_still"),
+                new ResourceLocation(MOD_ID, "block/zinc_flowing"),
+                new ResourceLocation(MOD_ID, "block/zinc_overlay"),
                 0xFF888888  // Цвет (серый)
         ));
 ```
 
-#### 3️⃣ В метод `getFluidType()`:
+### Шаг 3: Добавьте в метод `getFluidType(ModFluid fluid)`:
 
 ```java
-if (fluid == ModFluid.ZINC) {
-    return ZINC_FLUID_TYPE.get();
-}
+case ZINC -> ZINC_FLUID_TYPE.get();
 ```
 
-#### 4️⃣ Создайте текстуры:
+### Шаг 4: Создайте текстуры:
 
 ```
 assets/ultimate_tech/textures/block/
-- zinc_fluid_still.png (256x256)
-- zinc_fluid_flowing.png (256x256)
-- zinc_fluid_overlay.png (256x256)
+- zinc_still.png (256x256)
+- zinc_flowing.png (256x256)
+- zinc_overlay.png (256x256)
 ```
 
-#### ✨ Всё! Жидкость автоматически создана с:
+### ✨ Система **автоматически создаст:**
 - Source жидкость
 - Flowing жидкость
 - Блок жидкости
-- Ведро
+- Ведро с жидкостью
+- Всё необходимое для крафта
 
 ---
 
@@ -284,11 +458,12 @@ minecraft {
 
 ## 📝 TODO
 
-- [ ] Добавить крафт рецепты
 - [ ] Добавить звуковые эффекты
 - [ ] Оптимизировать текстуры
-- [ ] Добавить еду (SOON)
+- [ ] Добавить еду
 - [ ] Добавить больше материалов
+- [ ] Улучшить UI EMI интеграции
+- [ ] Добавить локализацию на другие языки
 
 ---
 ## Oil Diagram 
@@ -503,21 +678,80 @@ flowchart LR
 
 ---
 
+## 🛠️ Архитектура системы регистрации
+
+```mermaid
+graph LR
+    subgraph "1. Инициализация"
+        A["🎯 Ultimate_tech.java<br/>Главный класс"]
+        A -->|вызов| B["🔧 RegistryInitializer<br/>.initializeAll"]
+    end
+    
+    subgraph "2. Регистрация компонентов"
+        B -->|читает| C["📋 ModMaterial.java<br/>enum"]
+        B -->|читает| D["💧 ModFluid.java<br/>enum"]
+        C --> E["⚙️ ModItemsUtils<br/>создание предметов"]
+        C --> F["⚙️ ModBlockUtils<br/>создание блоков"]
+        D --> G["⚙️ ModFluidUtils<br/>создание жидкостей"]
+    end
+    
+    subgraph "3. Регистрация в реестрах"
+        E --> H["📦 DeferredRegister Items"]
+        F --> I["📦 DeferredRegister Blocks"]
+        G --> J["📦 DeferredRegister Fluids"]
+    end
+    
+    subgraph "4. Forge Реестр"
+        H --> K["🎯 Forge Registry<br/>Ready!"]
+        I --> K
+        J --> K
+    end
+    
+    K -->|подключение| L["📖 EMI<br/>Интеграция"]
+    K -->|подключение| M["🎮 CreativeTabs<br/>Вкладки"]
+    
+    style A fill:#3498db,color:#fff
+    style B fill:#e74c3c,color:#fff
+    style C fill:#f39c12,color:#fff
+    style D fill:#9b59b6,color:#fff
+    style E fill:#1abc9c,color:#fff
+    style F fill:#16a085,color:#fff
+    style G fill:#27ae60,color:#fff
+    style H fill:#2980b9,color:#fff
+    style I fill:#8e44ad,color:#fff
+    style J fill:#c0392b,color:#fff
+    style K fill:#27ae60,color:#fff
+    style L fill:#f39c12,color:#fff
+    style M fill:#3498db,color:#fff
+```
+
+---
+
 ## 🙏 Спасибо
 
-- **Kaupenjoe**
-- **Forge Team**
-- **Minecraft Community**
+- **Kaupenjoe** - Туториалы по Forge
+- **Forge Team** - Minecraft Forge фреймворк
+- **EMI Team** - EMI API и интеграция
+- **Minecraft Community** - Вдохновение и помощь
 
 ---
 
 ## 📄 Лицензия
 
-Проект лицензирован под MIT License
+Проект лицензирован под MIT License - смотрите файл [LICENSE](LICENSE) для подробностей.
+
+---
+
+## 💬 Контакты и ссылки
+
+- **GitHub:** [alyoo_sha/Ultimate-Tech](https://github.com/alyoo_sha/Ultimate-Tech)
+- **Minecraft Forum:** [Ultimate Tech Mod](https://www.minecraftforge.net/)
 
 ---
 
 Made with ❤️ by Ultimate Tech Team
+
+**Последнее обновление:** 2026-04-11 | **Версия:** 1.0.0
 
 **Последнее обновление:** 2026-04-09 | **Версия:** 1.0.0
 
