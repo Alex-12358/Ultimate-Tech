@@ -1,0 +1,23 @@
+{
+    "targets": [
+        "swap"
+    ],
+    "passes": [
+        {
+            "name": "ultimate_tech:blur_h",
+            "intarget": "minecraft:main",
+            "outtarget": "swap",
+            "uniforms": [
+                { "name": "BlurRadius", "values": [ 5.0 ] }
+            ]
+        },
+        {
+            "name": "ultimate_tech:blur_v",
+            "intarget": "swap",
+            "outtarget": "minecraft:main",
+            "uniforms": [
+                { "name": "BlurRadius", "values": [ 5.0 ] }
+            ]
+        }
+    ]
+}
