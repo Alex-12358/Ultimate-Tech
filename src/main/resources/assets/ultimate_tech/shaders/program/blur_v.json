@@ -1,6 +1,11 @@
 {
-  "vertex": "ultimate_tech:shaders/program/blur.vsh",
-  "fragment": "ultimate_tech:shaders/program/blur_v.fsh",
+  "blend": {
+    "func": "add",
+    "srcrgb": "one",
+    "dstrgb": "zero"
+  },
+  "vertex": "ultimate_tech:blur",
+  "fragment": "ultimate_tech:blur_v",
   "samplers": [
     { "name": "DiffuseSampler" }
   ],
